@@ -1,0 +1,96 @@
+/* Main Stylesheet for Rare Cancers PH site */
+
+@import url('https://fonts.googleapis.com/css?family=Karla:700|Lato:400,700');
+
+:root {
+  /* COLORS */
+  --color-blue-primary: #00409E;
+  --color-blue-secondary: #3E8CFF;
+  --color-blue-light: #F3F8FF;
+
+  --color-red-primary: #C40000;
+  --color-red-secondary: #FF8B8F;
+  --color-red-light: #FFF3F3;
+
+  --color-yellow-primary: #F9BA0D;
+  --color-yellow-secondary: #FFDE83;
+  --color-yellow-light: #FFF9E9;
+
+  --color-teal-primary: #7FB7BE;
+  --color-teal-secondary: #D3F3EE;
+  --color-teal-light: #ECFFFC;
+
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #686868;
+
+  --color-bg-navbar: #FAFAFA;
+
+  /* SIZES */
+  --size-text-body: 18px;
+  --size-text-small: 14px;
+  --size-text-emphasis: 20px;
+
+  --size-text-h1: 2.67em; /* 48px */
+  --size-text-h2:    2em; /* 36px */
+  --size-text-h3: 1.83em; /* 33px */
+  --size-text-h4: 1.44em; /* 26px */
+  --size-text-h5: 1.33em; /* 24px */
+  --size-text-h6: 1.11em; /* 20px */
+
+  --line-height-body: 150%;
+  --line-height-heading: 100%;
+
+  /* TYPEFACES */
+  --font-heading: 'Karla', sans-serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  color: var(--color-text-primary);
+  font-size: var(--size-text-body);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--line-height-body);
+}
+
+/* General text styles */
+
+strong {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+/* Heading */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height-heading);
+}
+
+h1, h4 { color: var(--color-blue-primary); }
+h2, h5 { color: var(--color-blue-secondary); }
+h3, h6 { color: var(--color-teal-primary); }
+
+h1 { font-size: var(--size-text-h1); }
+h2 { font-size: var(--size-text-h2); }
+h3 { font-size: var(--size-text-h3); }
+h4 { font-size: var(--size-text-h4); }
+h5 { font-size: var(--size-text-h5); }
+h6 { font-size: var(--size-text-h6); }
+
+/* Hyperlinks */
+a {
+  text-decoration: none;
+  color: var(--color-blue-secondary);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--color-blue-primary);
+}
