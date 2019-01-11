@@ -23,7 +23,7 @@
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #686868;
 
-  --color-bg-navbar: #FAFAFA;
+  --color-bg-navbar: rgba(250, 250, 250, 0.8);
 
   /* SIZES */
   --size-text-body: 18px;
@@ -120,4 +120,70 @@ a:hover::before,
 a:focus::before,
 a:active::before {
   height: 100%;
+}
+
+/** 
+ * HEADER STYLES
+ */
+
+header {
+  width: 100vw;
+  height: 100px;
+  background-color: var(--color-bg-navbar);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.05);
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header .brand {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+header .navigation {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 40em;
+  width: 50%;
+  height: 100%;
+}
+
+header .navigation .nav-item {
+  flex: 0 1 auto;
+  display: block;
+  text-align: center;
+}
+
+header .navigation .nav-item a {
+  color: var(--color-blue-primary);
+  border-bottom: none;
+  padding: .5em 0;
+  z-index: initial;
+  width: auto;
+  display: inline-block;
+  position: relative;
+}
+
+header .navigation .nav-item a::before {
+  content: "";
+  z-index: initial;
+  height: 3px;
+  background-color: var(--color-blue-secondary);
+  right: 0;
+  transform: scaleY(0);
+  transition: transform 300ms;
+}
+
+header .navigation .nav-item a:hover::before,
+header .navigation .nav-item a:focus::before,
+header .navigation .active.nav-item a::before {
+  transform: scaleY(1);
 }
