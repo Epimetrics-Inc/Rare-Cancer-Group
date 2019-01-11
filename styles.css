@@ -70,6 +70,7 @@ strong {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: var(--line-height-heading);
+  padding-bottom: 1rem;
 }
 
 h1, h4 { color: var(--color-blue-primary); }
@@ -85,12 +86,38 @@ h6 { font-size: var(--size-text-h6); }
 
 /* Hyperlinks */
 a {
-  text-decoration: none;
   color: var(--color-blue-secondary);
+  text-shadow: 0 1px 0 var(--color-blue-light);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--color-blue-primary);
+  display: inline-block;
+  position: relative;
+  padding: 0 .2em;
+  transition: all 250ms;
+  z-index: 100;
+}
+
+a::before {
+  content: "";
+  z-index: -1;
+  width: 100%;
+  height: 0%;
+  background: var(--color-blue-light);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transition: height 250ms;
 }
 
 a:hover,
 a:focus,
 a:active {
   color: var(--color-blue-primary);
+  border-color: transparent;
+}
+
+a:hover::before,
+a:focus::before,
+a:active::before {
+  height: 100%;
 }
