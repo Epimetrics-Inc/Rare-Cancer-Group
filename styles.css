@@ -30,6 +30,8 @@
   --size-text-small: 14px;
   --size-text-emphasis: 20px;
 
+  --size-text-button: 1.11em; /* 20px */
+
   --size-text-h1: 2.67em; /* 48px */
   --size-text-h2:    2em; /* 36px */
   --size-text-h3: 1.83em; /* 33px */
@@ -39,6 +41,8 @@
 
   --line-height-body: 150%;
   --line-height-heading: 100%;
+
+  --border-radius: 0.278rem;
 
   /* TYPEFACES */
   --font-heading: 'Karla', sans-serif;
@@ -59,8 +63,9 @@ html, body {
   line-height: var(--line-height-body);
 }
 
-/* General text styles */
-
+/**
+ * GENERAL STYLES
+ */
 strong {
   font-family: var(--font-body);
   font-weight: 700;
@@ -122,6 +127,65 @@ a:active::before {
   height: 100%;
 }
 
+p:first-of-type {
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+/* button */
+.button {
+  display: block;
+  text-align: center;
+  text-shadow: none;
+  font-size: var(--size-text-button);
+  font-family: var(--font-heading);
+  padding: 0.8rem 1.3rem;
+  border: 3px solid transparent;
+  border-radius: var(--border-radius);
+  width: auto;
+}
+
+.filled.button {
+  color: #fff;
+}
+
+.blue.filled.button {
+  background-color: var(--color-blue-primary);
+}
+
+.blue.outlined.button {
+  border-color: var(--color-blue-primary);
+  color: var(--color-blue-primary);
+}
+
+.button::before {
+  z-index: initial !important;
+  width: initial !important;
+  height: initial !important;
+  background: none !important;
+  bottom: initial !important;
+  left: initial !important;
+  position: initial !important;
+  transition: none !important;
+}
+
+/* INPUT FIELD STYLES */
+input {
+  font-size: var(--size-text-body);
+  padding: 0.8rem 1.3rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: #fafafa;
+}
+
+input:focus {
+  outline-color: var(--color-blue-secondary);
+}
+
+input::placeholder {
+  opacity: 0.4;
+}
+
 /** 
  * HEADER STYLES
  */
@@ -134,7 +198,8 @@ header {
   display: inline-flex;
   justify-content: space-between;
   padding: 0 50px;
-  position: sticky;
+  position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
@@ -186,4 +251,65 @@ header .navigation .nav-item a:hover::before,
 header .navigation .nav-item a:focus::before,
 header .navigation .active.nav-item a::before {
   transform: scaleY(1);
+}
+
+/* HERO BANNER */
+.hero-banner {
+  display: block;
+}
+
+/* LightSlider overrides */
+/* removing the styles for hyperlinks on the carousel buttons */
+.hero-banner.carousel + .lSAction > a {
+  color: initial;
+  text-shadow: none;
+  border-bottom: none;
+}
+
+.hero-banner.carousel + .lSAction > a::before {
+  z-index: initial !important;
+  width: initial !important;
+  height: initial !important;
+  background: none !important;
+  bottom: initial !important;
+  left: initial !important;
+  position: initial !important;
+  transition: none !important;
+}
+
+/* moving pager within the slider */
+.lSSlideOuter .lSPager.lSpg {
+  position: absolute;
+  top: 94vh;
+  left: 0;
+  right: 0;
+}
+
+/* Slide styles */
+.hero-banner.carousel .slide .description {
+  height: 100vh;
+  background-color: var(--color-blue-light);
+  background-size: cover;
+  background-position: center;
+  padding: 2em 100px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.description > *:not(.button) {
+  width: 36rem;
+}
+
+#subscribe-to-newsletter { display: inline-flex; }
+
+#subscribe-to-newsletter input[type="email"] {
+  flex: 4;
+  margin-right: 1.11rem;
+}
+
+#subscribe-to-newsletter .button {
+  flex: 1;
 }

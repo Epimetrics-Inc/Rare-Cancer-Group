@@ -32,9 +32,12 @@
   <!-- JavaScript -->
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  
+
   <!-- LightSlider -->
   <script src="assets/lightslider/js/lightslider.js"></script>
+
+  <!-- Custm JS -->
+  <script src="main.js"></script>
 
 </head>
 <body>
@@ -48,7 +51,29 @@
     </ul>
   </header>
   <main>
-
+    <ul class="hero-banner carousel">
+      <li class="slide">
+        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url('images/hero-1.jpg');">
+          <h1>Learn all about what you're going through.</h1>
+          <p>Text description to further encourage people to subscribe to the website’s newsletter if there is any</p>
+          <div id="subscribe-to-newsletter"><input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button">Subscribe</a></div>
+        </div>
+      </li>
+      <li class="slide">
+        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url('images/hero-2.jpg');">
+          <h1>Another header message</h1>
+          <p>This is to demonstrate the carousel on the hero banner of the website.</p>
+          <a href="#" class="blue filled button">Sample CTA</a>
+        </div>
+      </li>
+      <li class="slide">
+        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url('images/hero-3.jpg');">
+          <h1>Yet another example</h1>
+          <p>It's important to note that when setting up slides for the carousel, there always has to be a call-to-action within it.</p>
+          <a href="#" class="blue filled button">Like This</a>
+        </div>
+      </li>
+    </ul>
     <h1>Hello World</h1>
     <h2>Hello World</h2>
     <h3>Hello World</h3>
