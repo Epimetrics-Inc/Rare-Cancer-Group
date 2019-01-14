@@ -453,3 +453,39 @@ header .navigation .active.nav-item a::before {
   text-align: right;
   align-self: flex-end;
 }
+
+.article-card .article-card-category {
+  position: relative;
+  color: #fff;
+  border-radius: 3px 3px 3px 2px;
+  margin-left: -2.75rem;
+  padding: 0.56rem;
+
+  text-shadow: none;
+  border-bottom: none;
+  display: initial;
+  z-index: initial;
+}
+
+.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
+.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
+
+.article-card .article-card-category::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-bottom: 0.56rem solid transparent;
+  z-index: initial;
+  width: initial;
+  height: initial;
+  background: none;
+  bottom: initial;
+}
+
+.article-card.medical-information .article-card-category::before { border-right: 1.08rem solid var(--color-blue-secondary); }
+.article-card.financial-aid .article-card-category::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
+.article-card.social-support .article-card-category::before { border-right: 1.08rem solid var(--color-red-secondary); }
+.article-card.others .article-card-category::before { border-right: 1.08rem solid var(--color-teal-secondary); }
