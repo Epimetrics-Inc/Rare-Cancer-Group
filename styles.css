@@ -252,6 +252,14 @@ header .navigation .active.nav-item a::before {
   transform: scaleY(1);
 }
 
+/**
+ * MAIN STYLES
+ */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 /* HERO BANNER */
 .hero-banner {
   display: block;
@@ -307,14 +315,14 @@ header .navigation .active.nav-item a::before {
   margin-bottom: 1.1rem;
 }
 
-#subscribe-to-newsletter { display: inline-flex; }
+.subscribe-to-newsletter { display: inline-flex; }
 
-#subscribe-to-newsletter input[type="email"] {
+.subscribe-to-newsletter input[type="email"] {
   flex: 4;
   margin-right: 1.11rem;
 }
 
-#subscribe-to-newsletter .button {
+.subscribe-to-newsletter .button {
   flex: 1;
 }
 
@@ -525,4 +533,24 @@ header .navigation .active.nav-item a::before {
 
 .about .about-information .button {
   width: auto;
+}
+
+/* NEWSLETTER SIGNUP SECTION STYLES */
+.newsletter-signup {
+  width: 100vw;
+  display: inline-flex;
+  align-items: center;
+  height: 35vh;
+  background-color: var(--color-blue-light);
+}
+
+.newsletter-signup .newsletter-info {
+  display: block;
+  margin: 1rem 2.22rem;
+  width: 40%;
+}
+
+.newsletter-signup .subscribe-to-newsletter {
+  margin: 1rem 2.22rem;
+  flex-grow: 1.5;
 }
