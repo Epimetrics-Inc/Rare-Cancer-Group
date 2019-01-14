@@ -126,11 +126,10 @@ a:focus::before,
 a:active::before {
   height: 100%;
 }
-
+/*
 p:first-of-type {
-  margin-top: 1.1rem;
-  margin-bottom: 1.1rem;
-}
+  
+}*/
 
 /* button */
 .button {
@@ -303,6 +302,11 @@ header .navigation .active.nav-item a::before {
   width: 36rem;
 }
 
+.description > p {
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
 #subscribe-to-newsletter { display: inline-flex; }
 
 #subscribe-to-newsletter input[type="email"] {
@@ -324,6 +328,7 @@ header .navigation .active.nav-item a::before {
 .stages .stage {
   width: 100vw;
   min-height: 70vh;
+  padding: 2.78rem 8.33rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
@@ -338,7 +343,7 @@ header .navigation .active.nav-item a::before {
 .stage .stage-details {
   grid-column: 1 / 5;
   grid-row: 1 / span 1;
-  margin: 2.78rem 8.33rem;
+  margin: 0 auto 2.78rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -388,23 +393,52 @@ header .navigation .active.nav-item a::before {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 3.5rem;
-  padding: 0 8.33rem;
 }
 
 .article-cards .article-card {
   background-color: #fff;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
-              0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 0px var(--color-blue-secondary);
   border-radius: 3px 10px;
   padding: 1.67rem;
   grid-column: span 1;
   grid-row: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.article-cards .article-card.medical-information {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-blue-secondary);
+}
+
+.article-cards .article-card.financial-aid {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-yellow-secondary);
+}
+
+.article-cards .article-card.social-support {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-red-secondary);
+}
+
+.article-cards .article-card.others {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-teal-secondary);
 }
 
 .article-card .article-card-heading .article-title {
   padding-bottom: 0.5rem;
 }
+
+.article-card.medical-information .article-card-heading .article-title { color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-heading .article-title { color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
+.article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
 
 .article-card .article-card-heading .article-meta {
   margin: 0 auto 0.75rem;
@@ -413,4 +447,9 @@ header .navigation .active.nav-item a::before {
 
 .article-card .article-excerpt {
   margin-bottom: 1rem;
+}
+
+.article-card .article-read-more {
+  text-align: right;
+  align-self: flex-end;
 }
