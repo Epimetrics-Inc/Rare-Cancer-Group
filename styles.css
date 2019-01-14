@@ -554,3 +554,86 @@ main {
   margin: 1rem 2.22rem;
   flex-grow: 1.5;
 }
+
+/* FOOTER STYLES */
+footer {
+  background-color: var(--color-blue-primary);
+  color: #fff;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.56rem 2.78rem;
+}
+
+footer > * {
+  flex: 0 1 auto;
+}
+footer h4 { color: var(--color-teal-secondary); }
+
+footer a {
+  color: #fff;
+  text-shadow: none;
+  border-bottom: none;
+  padding: initial;
+  z-index: initial;
+}
+
+footer a::before {
+  z-index: initial;
+  width: initial;
+  height: initial;
+  background: none;
+  bottom: initial;
+  left: initial;
+  position: initial;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+  color: var(--color-teal-secondary);
+}
+
+footer .sitemap {
+  column-count: 2;
+  column-gap: 5rem;
+  column-span: all;
+  column-width: 5.56rem;
+  column-fill: balance;
+  list-style-type: none;
+  height: 100%;
+}
+
+footer .sitemap li {
+  margin-bottom: 0.25rem;
+}
+
+footer .sitemap h4 {
+  margin-bottom: 2rem;
+}
+
+footer .org-information {
+  text-align: right;
+}
+
+footer .org-information a {
+  color: var(--color-teal-secondary);
+}
+
+footer .org-information a:hover,
+footer .org-information a:focus,
+footer .org-information a:active {
+  color: var(--color-teal-primary);
+}
+
+footer .org-information .name {
+  padding-bottom: 0.5rem;
+}
+
+.social-media-links {
+  margin: 1rem auto;
+}
+
+.social-media-links .link:first-of-type {
+  margin-right: 2rem;
+}
