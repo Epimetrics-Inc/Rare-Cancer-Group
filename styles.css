@@ -133,7 +133,7 @@ p:first-of-type {
 
 /* button */
 .button {
-  display: block;
+  display: inline-block;
   text-align: center;
   text-shadow: none;
   font-size: var(--size-text-button);
@@ -395,6 +395,7 @@ header .navigation .active.nav-item a::before {
   grid-gap: 3.5rem;
 }
 
+/* Article Card Specific styles */
 .article-cards .article-card {
   background-color: #fff;
   border-radius: 3px 10px;
@@ -407,38 +408,9 @@ header .navigation .active.nav-item a::before {
   align-items: flex-start;
 }
 
-.article-cards .article-card.medical-information {
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
-              0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 0px var(--color-blue-secondary);
-}
-
-.article-cards .article-card.financial-aid {
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
-              0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 0px var(--color-yellow-secondary);
-}
-
-.article-cards .article-card.social-support {
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
-              0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 0px var(--color-red-secondary);
-}
-
-.article-cards .article-card.others {
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
-              0px 4px 4px rgba(0, 0, 0, 0.25),
-              inset 0px 4px 0px var(--color-teal-secondary);
-}
-
 .article-card .article-card-heading .article-title {
   padding-bottom: 0.5rem;
 }
-
-.article-card.medical-information .article-card-heading .article-title { color: var(--color-blue-primary); }
-.article-card.financial-aid .article-card-heading .article-title { color: var(--color-yellow-primary); }
-.article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
-.article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
 
 .article-card .article-card-heading .article-meta {
   margin: 0 auto 0.75rem;
@@ -467,11 +439,6 @@ header .navigation .active.nav-item a::before {
   z-index: initial;
 }
 
-.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
-.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
-.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
-.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
-
 .article-card .article-card-category::before {
   content: "";
   position: absolute;
@@ -485,7 +452,77 @@ header .navigation .active.nav-item a::before {
   bottom: initial;
 }
 
+/* Category-specific color coding for Article Cards */
+.article-cards .article-card.medical-information {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-blue-secondary);
+}
+
+.article-cards .article-card.financial-aid {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-yellow-secondary);
+}
+
+.article-cards .article-card.social-support {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-red-secondary);
+}
+
+.article-cards .article-card.others {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-teal-secondary);
+}
+
+.article-card.medical-information .article-card-heading .article-title { color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-heading .article-title { color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
+.article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
+
+.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
+.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
+
 .article-card.medical-information .article-card-category::before { border-right: 1.08rem solid var(--color-blue-secondary); }
 .article-card.financial-aid .article-card-category::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
 .article-card.social-support .article-card-category::before { border-right: 1.08rem solid var(--color-red-secondary); }
 .article-card.others .article-card-category::before { border-right: 1.08rem solid var(--color-teal-secondary); }
+
+/* ABOUT RCPH SECTION STYLES */
+.about {
+  width: 100vw;
+  display: inline-flex;
+  align-items: center;
+  height: 50vh;
+}
+
+.about .about-preview {
+  height: 100%;
+  width: auto;
+  max-width: 50vw;
+  display: block;
+}
+
+.about .about-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about .about-information {
+  display: block;
+  margin: 1rem 2.22rem;
+  width: 40%;
+}
+
+.about .about-information .about-excerpt {
+  margin: 0 auto 1.5rem;
+}
+
+.about .about-information .button {
+  width: auto;
+}
