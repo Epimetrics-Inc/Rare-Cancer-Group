@@ -313,3 +313,76 @@ header .navigation .active.nav-item a::before {
 #subscribe-to-newsletter .button {
   flex: 1;
 }
+
+/* STAGES CARD STYLES */
+.stages {
+  display: block;
+  margin: 0 auto;
+  width: 100vw;
+}
+
+.stages .stage {
+  width: 100vw;
+  min-height: 70vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  position: relative;
+}
+
+.stage:nth-child(odd) { background-color: var(--color-blue-light); }
+.stage:nth-child(even) { background-color: #fff; }
+
+.stage .stage-details {
+  grid-column: 1 / 5;
+  grid-row: 1 / span 1;
+  margin: 2.78rem 8.33rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stage .stage-details::before {
+  content: "";
+  position: absolute;
+  top: 4.2rem;
+  left: 0;
+  width: 5.56rem;
+  height: 3px;
+  background-color: #c4c4c4;
+}
+
+.stage .stage-details::after {
+  content: "";
+  position: absolute;
+  width: 1.39rem;
+  height: 1.39rem;
+  left: calc(5.56rem - (1.39rem / 2));
+  top: calc(4.2rem - (1.39rem / 2));
+  background-color: var(--color-blue-secondary);
+  border-radius: 50%;
+}
+
+.stage:nth-child(even) .stage-details::after {
+  background-color: var(--color-teal-secondary);
+}
+
+.stage .stage-details .stage-name {
+  color: var(--color-blue-primary);
+  flex: 1 1 auto;
+}
+
+.stage:nth-child(even) .stage-details .stage-name {
+  color: var(--color-teal-primary);
+}
+
+.stage .stage-details .stage-description {
+  flex: 2 1 auto;
+  margin: 0 2.78rem;
+}
+
+.stages .stage .article-cards {
+  
+}
