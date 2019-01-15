@@ -176,7 +176,8 @@ p:first-of-type {
 }
 
 /* INPUT FIELD STYLES */
-input {
+input,
+textarea {
   font-size: var(--size-text-body);
   padding: 0.8rem 1.3rem;
   border-radius: var(--border-radius);
@@ -184,11 +185,13 @@ input {
   background-color: #fafafa;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline-color: var(--color-blue-secondary);
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   opacity: 0.4;
 }
 
@@ -264,6 +267,7 @@ header .navigation .active.nav-item a::before {
  */
 main {
   display: flex;
+  min-height: 70vh;
   flex-direction: column;
 }
 
@@ -564,6 +568,7 @@ main {
 
 /* FOOTER STYLES */
 footer {
+  width: 100vw;
   background-color: var(--color-blue-primary);
   color: #fff;
   display: inline-flex;
@@ -645,4 +650,32 @@ footer .org-information .name {
   margin-right: 2rem;
 }
 
+footer .address,
 footer .copyright { font-size: var(--size-text-small); }
+
+/* CONTACT US STYLES */
+main#contact {
+  flex-direction: row;
+  justify-content: space-around;
+  padding: calc(100px + 2.78rem) 8.33rem 2.78rem;
+}
+
+.contact-us {
+  display: block;
+  width: 50%;
+}
+
+.contact-us .contact-form {
+  display: block;
+}
+
+.contact-form label {
+  width: 100%;
+  color: var(--color-blue-primary);
+}
+
+.contact-form input:not([type="submit"]),
+.contact-form textarea {
+  width: 100%;
+  margin: 0.5rem auto 1rem;
+}
