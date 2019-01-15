@@ -23,7 +23,7 @@
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #686868;
 
-  --color-bg-navbar: rgba(250, 250, 250, 0.8);
+  --color-bg-navbar: rgba(250, 250, 250, 0.9);
 
   /* SIZES */
   --size-text-body: 18px;
@@ -142,6 +142,7 @@ p:first-of-type {
   border: 3px solid transparent;
   border-radius: var(--border-radius);
   width: auto;
+  transition: all 300ms;
 }
 
 .filled.button {
@@ -166,6 +167,12 @@ p:first-of-type {
   left: initial !important;
   position: initial !important;
   transition: none !important;
+}
+
+.blue.filled.button:hover,
+.blue.filled.button:focus,
+.blue.filled.button:active {
+  background-color: var(--color-blue-secondary);
 }
 
 /* INPUT FIELD STYLES */
@@ -637,3 +644,5 @@ footer .org-information .name {
 .social-media-links .link:first-of-type {
   margin-right: 2rem;
 }
+
+footer .copyright { font-size: var(--size-text-small); }
