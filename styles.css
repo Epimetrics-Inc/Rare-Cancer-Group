@@ -679,3 +679,43 @@ main#contact {
   width: 100%;
   margin: 0.5rem auto 1rem;
 }
+
+.contact-form input[type="submit"] {
+  float: right;
+}
+
+.contact-info {
+  display: block;
+  width: 50%;
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+
+.contact-info a {
+  text-shadow: none;
+  border-bottom: none;
+  display: block;
+  padding: initial;
+  z-index: initial;
+  color: var(--color-blue-primary);
+  margin-bottom: 1.25rem;
+}
+
+.contact-info a::before {
+  content: "";
+  z-index: initial;
+  width: initial;
+  height: initial;
+  background: none;
+  bottom: initial;
+  left: initial;
+  position: initial;
+}
+
+.contact-info a i {
+  margin: 0.25rem 1rem;
+  font-size: 24px;
+  color: var(--color-teal-primary);
+}
+
+.contact-info a:first-of-type i { margin: 0.25rem 0.8rem; }
