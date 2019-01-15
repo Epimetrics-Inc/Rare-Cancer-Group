@@ -126,10 +126,6 @@ a:focus::before,
 a:active::before {
   height: 100%;
 }
-/*
-p:first-of-type {
-  
-}*/
 
 /* button */
 .button {
@@ -215,6 +211,21 @@ header {
 }
 
 header .brand {
+  display: block;
+  height: 100%;
+  width: auto;
+  border-bottom: none;
+  text-shadow: none;
+  padding: initial;
+  z-index: initial;
+}
+
+header .brand::before {
+  background: none;
+  display: none;
+}
+
+header .brand img {
   display: block;
   height: 100%;
   width: auto;
@@ -317,11 +328,11 @@ main {
   align-content: center;
 }
 
-.description > *:not(.button) {
+.hero-banner.carousel .slide .description > *:not(.button) {
   width: 36rem;
 }
 
-.description > p {
+.hero-banner.carousel .slide .description > p {
   margin-top: 1.1rem;
   margin-bottom: 1.1rem;
 }
@@ -646,8 +657,8 @@ footer .org-information .name {
   margin: 1rem auto;
 }
 
-.social-media-links .link:first-of-type {
-  margin-right: 2rem;
+.social-media-links i {
+  margin: 0.25rem;
 }
 
 footer .address,
@@ -671,13 +682,13 @@ main#contact {
 
 .contact-form label {
   width: 100%;
-  color: var(--color-blue-primary);
+  color: var(--color-teal-primary);
 }
 
 .contact-form input:not([type="submit"]),
 .contact-form textarea {
   width: 100%;
-  margin: 0.5rem auto 1rem;
+  margin: 0.5rem auto 1.5rem;
 }
 
 .contact-form input[type="submit"] {
@@ -719,3 +730,70 @@ main#contact {
 }
 
 .contact-info a:first-of-type i { margin: 0.25rem 0.8rem; }
+
+/* ABOUT US STYLES */
+#about .hero-banner.text-only {
+  background-color: var(--color-blue-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding-top: 100px;
+}
+
+.hero-banner.text-only .hero-text {
+  width: 60%;
+}
+
+/* Vision Mission styles */
+.vision-mission {
+  display: flex;
+  width: 100vw;
+  min-height: 50vh;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.vision-mission > * {
+  width: 50%;
+  position: relative;
+  padding: 2.78rem 5rem 2.78rem 8.33rem;
+}
+
+.vision-mission > * > h2 { color: var(--color-teal-primary); }
+
+.vision-mission > * > h2::before {
+  content: "";
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 5.56rem;
+  height: 3px;
+  background-color: #c4c4c4;
+}
+
+.vision-mission > * > h2::after {
+  content: "";
+  position: absolute;
+  width: 1.39rem;
+  height: 1.39rem;
+  left: calc(5.56rem - (1.39rem / 2));
+  top: calc(4rem - (1.39rem / 2));
+  background-color: var(--color-teal-secondary);
+  border-radius: 50%;
+}
+
+.vision-mission > .mission::before {
+  content: "";
+  width: 5px;
+  height: 4.44rem;
+  background-color: #7FB7BE;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  z-index: 2;
+}
+
+.vision-mission > * > .description > p {
+  margin-bottom: 1rem;
+}
