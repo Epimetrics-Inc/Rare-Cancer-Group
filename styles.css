@@ -91,18 +91,23 @@ h6 { font-size: var(--size-text-h6); }
 
 /* Hyperlinks */
 a {
+  text-decoration: none;
+  transition: all 250ms;
+}
+  
+a:not([class]),
+a.article-read-more {
   color: var(--color-blue-secondary);
   text-shadow: 0 1px 0 var(--color-blue-light);
-  text-decoration: none;
   border-bottom: 1px dashed var(--color-blue-primary);
   display: inline-block;
   position: relative;
   padding: 0 .2em;
-  transition: all 250ms;
   z-index: 100;
 }
 
-a::before {
+a:not([class])::before,
+a.article-read-more::before {
   content: "";
   z-index: -1;
   width: 100%;
@@ -114,16 +119,22 @@ a::before {
   transition: height 250ms;
 }
 
-a:hover,
-a:focus,
-a:active {
+a:not([class]):hover,
+a:not([class]):focus,
+a:not([class]):active,
+a.article-read-more:hover,
+a.article-read-more:focus,
+a.article-read-more:active {
   color: var(--color-blue-primary);
   border-color: transparent;
 }
 
-a:hover::before,
-a:focus::before,
-a:active::before {
+a:not([class]):hover::before,
+a:not([class]):focus::before,
+a:not([class]):active::before,
+a.article-read-more:hover::before,
+a.article-read-more:focus::before,
+a.article-read-more:active::before {
   height: 100%;
 }
 
@@ -593,7 +604,7 @@ footer > * {
 }
 footer h4 { color: var(--color-teal-secondary); }
 
-footer a {
+footer .sitemap a {
   color: #fff;
   text-shadow: none;
   border-bottom: none;
@@ -601,7 +612,7 @@ footer a {
   z-index: initial;
 }
 
-footer a::before {
+footer .sitemap a::before {
   z-index: initial;
   width: initial;
   height: initial;
@@ -611,13 +622,13 @@ footer a::before {
   position: initial;
 }
 
-footer a:hover,
-footer a:focus,
-footer a:active {
+footer .sitemap a:hover,
+footer .sitemap a:focus,
+footer .sitemap a:active {
   color: var(--color-teal-secondary);
 }
 
-footer .sitemap {
+footer .sitemap-links {
   column-count: 2;
   column-gap: 5rem;
   column-span: all;
@@ -627,12 +638,8 @@ footer .sitemap {
   height: 100%;
 }
 
-footer .sitemap li {
+footer .sitemap-links li {
   margin-bottom: 0.25rem;
-}
-
-footer .sitemap h4 {
-  margin-bottom: 2rem;
 }
 
 footer .org-information {
