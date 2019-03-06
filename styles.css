@@ -89,6 +89,21 @@ h4 { font-size: var(--size-text-h4); }
 h5 { font-size: var(--size-text-h5); }
 h6 { font-size: var(--size-text-h6); }
 
+ul, ol, dl {
+  margin: 1rem auto 1.75rem;
+}
+
+ul > li,
+ol > li,
+dl > dd {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+dl > dt {
+  font-weight: bold;
+}
+
 /* Hyperlinks */
 a {
   text-decoration: none;
@@ -253,6 +268,7 @@ header .navigation {
 }
 
 header .navigation .nav-item {
+  margin: 0 auto;
   flex: 0 1 auto;
   display: block;
   text-align: center;
@@ -835,7 +851,7 @@ main#contact {
 
 #article .article-header .article-title {
   color: #fff;
-  line-height: 1;
+  line-height: var(--line-height-heading);
 }
 
 #article .article-header .article-tags {
@@ -846,4 +862,75 @@ main#contact {
 #article .article-header .article-tags.medical-information {
   color: #fff;
   background-color: var(--color-blue-primary);
+}
+
+#article .article-body {
+  padding: 2.78rem 8.33rem;
+}
+
+#article .article-body p {
+  margin-bottom: 1rem;
+}
+
+#article .article-body blockquote {
+  margin: 1.25rem auto;
+  padding: 1.875rem;
+  width: 70vw;
+  border-radius: 10px;
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-primary);
+  position: relative;
+}
+
+#article .article-body blockquote::before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background-color: var(--color-blue-secondary);
+  width: 6px;
+  height: 100%;
+}
+
+#article .article-body figure {
+  width: auto;
+  height: auto;
+  margin: 2rem;
+}
+
+#article .article-body figure.image-size-small {
+  width: 20vw;
+}
+
+#article .article-body figure.image-size-medium {
+  width: 35vw;
+}
+
+#article .article-body figure.image-size-full {
+  width: 50vw;
+}
+
+#article .article-body figure.image-align-center {
+  margin: 2rem auto;
+}
+
+#article .article-body figure.image-align-left {
+  float: left;
+}
+
+#article .article-body figure.image-align-right {
+  float: right;
+}
+
+#article .article-body figure img {
+  width: 100%;
+  border-radius: 3px 50px;
+  object-fit: cover;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#article .article-body figure figcaption {
+  font-size: var(--size-text-small);
 }
