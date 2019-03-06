@@ -814,3 +814,36 @@ main#contact {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+/* ARTICLE STYLES */
+#article .hero-banner.article-feature-image {
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#article .article-header {
+  width: 60%;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--color-teal-secondary);
+  line-height: 2.5;
+}
+
+#article .article-header .article-title {
+  color: #fff;
+  line-height: 1;
+}
+
+#article .article-header .article-tags {
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+#article .article-header .article-tags.medical-information {
+  color: #fff;
+  background-color: var(--color-blue-primary);
+}
