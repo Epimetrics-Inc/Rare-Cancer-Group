@@ -31,6 +31,7 @@
   --size-text-emphasis: 20px;
 
   --size-text-button: 1.11em; /* 20px */
+  --size-header: 100px;
 
   --size-text-h1: 2.67em; /* 48px */
   --size-text-h2:    2em; /* 36px */
@@ -229,7 +230,7 @@ textarea::placeholder {
 
 header {
   width: 100vw;
-  height: 100px;
+  height: var(--size-header);
   background-color: var(--color-bg-navbar);
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.05);
   display: inline-flex;
@@ -301,7 +302,7 @@ header .navigation .nav-item a::before {
 }
 
 header .navigation .nav-item a:hover::before,
-header .navigation .nav-item a:focus::before,
+/*header .navigation .nav-item a:focus::before,*/
 header .navigation .active.nav-item a::before {
   transform: scaleY(1);
 }
@@ -1053,4 +1054,40 @@ main#contact {
 
 #resources .stage:nth-child(odd) .stage-details .stage-name {
   color: var(--color-teal-primary);
+}
+
+/* SEARCH STYLES */
+#search-container {
+  position: absolute;
+  top: var(--size-header);
+  z-index: 6;
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.15);
+  padding: 2rem 8.33rem;
+  background-color: var(--color-bg-navbar);
+  width: 100vw;
+  display: none;
+}
+
+#search-container .search-field {
+  position: relative;
+  display: block;
+}
+
+#search-container .search-field input {
+  font-size: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+#search-container .search-field input::placeholder {
+  opacity: 0.5;
+}
+
+#search-container .search-field i {
+  color: var(--color-text-secondary);
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  font-size: 2rem;
+  transform: translateY(-50%);
 }
