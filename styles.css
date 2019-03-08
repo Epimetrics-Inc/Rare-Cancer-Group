@@ -89,18 +89,20 @@ h4 { font-size: var(--size-text-h4); }
 h5 { font-size: var(--size-text-h5); }
 h6 { font-size: var(--size-text-h6); }
 
-ul, ol, dl {
+ul:not([class]),
+ol:not([class]),
+dl:not([class]) {
   margin: 1rem auto 1.75rem;
 }
 
-ul > li,
-ol > li,
-dl > dd {
+ul:not([class]) > li,
+ol:not([class]) > li,
+dl:not([class]) > dd {
   margin-left: 2rem;
   margin-bottom: 0.5rem;
 }
 
-dl > dt {
+dl:not([class]) > dt {
   font-weight: bold;
 }
 
@@ -933,4 +935,37 @@ main#contact {
 
 #article .article-body figure figcaption {
   font-size: var(--size-text-small);
+}
+
+#article .article-footer {
+  border-top: 2px solid var(--color-blue-primary);
+  margin: 0 8.33rem;
+  padding: 2rem;
+}
+
+#article .stages.related-articles .stage {
+  background-color: #fff;
+  min-height: initial;
+  height: auto;
+}
+
+#article .stages.related-articles .stage .stage-details {
+  grid-column: 1 / span 1;
+  align-self: flex-start;
+  margin-left: initial;
+  margin-right: initial;
+}
+
+#article .stages.related-articles .stage .stage-details::after {
+  background-color: var(--color-teal-secondary);
+}
+
+#article .stages.related-articles .stage .stage-details .stage-name {
+  color: var(--color-teal-primary);
+}
+
+#article .stages.related-articles .article-cards {
+  /*grid-template-columns: repeat(3, 1fr);*/
+  /*grid-gap: 2rem;*/
+  grid-template-rows: 1fr;
 }
