@@ -834,6 +834,7 @@ main#contact {
 }
 
 /* ARTICLE STYLES */
+/* Article Header styles */
 #article .hero-banner.article-feature-image {
   background-size: cover;
   background-position: center;
@@ -866,6 +867,7 @@ main#contact {
   background-color: var(--color-blue-primary);
 }
 
+/* Article Body styles */
 #article .article-body {
   padding: 2.78rem 8.33rem;
 }
@@ -937,12 +939,63 @@ main#contact {
   font-size: var(--size-text-small);
 }
 
+/* Article Footer styles */
 #article .article-footer {
-  border-top: 2px solid var(--color-blue-primary);
   margin: 0 8.33rem;
   padding: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
+#article .article-footer::before {
+  content: "";
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background-color: var(--color-blue-secondary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#article .article-footer .social-media-horizontal {
+  color: var(--color-blue-primary);
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+#article .article-footer .social-media-horizontal a {
+  font-size: 1.5rem;
+  border-bottom: none;
+}
+
+/* toggle to open comments section */
+#article .article-footer .comments {
+  color: var(--color-text-primary);
+}
+
+#article .article-footer .comments i {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-teal-primary);
+  transition: inherit;
+}
+
+#article .article-footer .comments:hover,
+#article .article-footer .comments:focus,
+#article .article-footer .comments:active {
+  color: var(--color-text-secondary);
+}
+
+#article .article-footer .comments:hover i,
+#article .article-footer .comments:focus i,
+#article .article-footer .comments:active i {
+  color: var(--color-teal-secondary);
+}
+
+/* Related Articles styles */
 #article .stages.related-articles .stage {
   background-color: #fff;
   min-height: initial;
