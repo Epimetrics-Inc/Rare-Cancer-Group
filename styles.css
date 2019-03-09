@@ -924,10 +924,12 @@ main#contact {
 
 #article .article-body figure.image-align-left {
   float: left;
+  margin-left: -2rem;
 }
 
 #article .article-body figure.image-align-right {
   float: right;
+  margin-right: -2rem;
 }
 
 #article .article-body figure img {
@@ -935,10 +937,19 @@ main#contact {
   border-radius: 3px 50px;
   object-fit: cover;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
+}
+
+#article .article-body figure:hover img {
+  transform: scale(1.015);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 6px 6px rgba(0, 0, 0, 0.10);
 }
 
 #article .article-body figure figcaption {
+  margin-top: 0.5rem;
   font-size: var(--size-text-small);
+  color: var(--color-text-secondary);
 }
 
 /* Article Footer styles */
