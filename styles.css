@@ -866,12 +866,14 @@ main#contact {
 #article .article-header .article-tags {
   padding: 0.5rem;
   border-radius: 6px;
+  color: #fff;
+  margin-right: 0.5rem;
 }
 
-#article .article-header .article-tags.medical-information {
-  color: #fff;
-  background-color: var(--color-blue-primary);
-}
+#article .article-header .article-tags.medical-information { background-color: var(--color-blue-primary); }
+#article .article-header .article-tags.financial-aid { background-color: var(--color-red-primary); }
+#article .article-header .article-tags.social-support { background-color: var(--color-yellow-primary); }
+#article .article-header .article-tags.others { background-color: var(--color-teal-primary); }
 
 /* Article Body styles */
 #article .article-body {
