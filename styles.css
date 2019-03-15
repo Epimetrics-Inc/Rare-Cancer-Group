@@ -1117,3 +1117,8 @@ main#contact {
   font-size: 2rem;
   transform: translateY(-50%);
 }
+
+/* SEARCH RESULTS PAGE STYLES */
+#search-results .hero-banner.text-only {
+  min-height: 20vh;
+}
