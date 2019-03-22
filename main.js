@@ -16,12 +16,20 @@ $(document).ready(function() {
     var searchContainer = $('#search-container');
     var navItem = $(this).parent();
     searchContainer.slideToggle(300, function() {
-        if (searchContainer.css('display') == 'block') {
-            navItem.addClass('active');
-        } else {
-            $('#search-container input').val("");
-            navItem.removeClass('active');
-        }
+      if (searchContainer.css('display') != 'none') {
+        navItem.addClass('active');
+      } else {
+        $('#search-container input').val("");
+        navItem.removeClass('active');
+      }
     });
+  });
+
+  $('.show-menu').click(function(e) {
+    if($('#search-container').css('display') != 'none') {
+      $('#search-container input').val("");
+      $('#search-container').css('display', 'none');
+      $('#search').parent().removeClass('active');
+    }
   });
 });

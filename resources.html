@@ -46,19 +46,20 @@
 <body>
   <header>
     <a class="brand" href="index.html"><img src="images/logo.png" alt=""></a>
+    <label for="show-menu" class="show-menu"><span class="blue outlined button">MENU</span></label>
+    <input type="checkbox" id="show-menu" role="button">
     <ul class="navigation">
       <li class="nav-item"><a href="about-us.html">About Us</a></li>
       <li class="active nav-item"><a href="resources.html">Resources</a></li>
       <li class="nav-item"><a href="contact.html">Get In Touch</a></li>
       <li class="nav-item"><a href="#" id="search">Search</a></li>
+      <li id="search-container">
+        <form action="search-results.html" id="search-form" class="search-field">
+          <input type="text" name="search_keyword" id="search_keyword" placeholder="Search for something..."><a href="#" class="search-trigger"><i class="fa fa-search"></i></a>
+        </form>
+      </li>
     </ul>
   </header>
-
-  <div id="search-container">
-    <form action="search-results.html" id="search-form" class="search-field">
-      <input type="text" name="search_keyword" id="search_keyword" placeholder="Search for something..."><a href="#" class="search-trigger"><i class="fa fa-search"></i></a>
-    </form>
-  </div>
 
   <main class="resources" id="main-resources">
     <!-- HERO BANNER -->
