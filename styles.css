@@ -40,7 +40,7 @@
   --size-text-h5: 1.11em; /* 20px */
   --size-text-h6: 1.05em; /* 18.9px */ 
 
-  --line-height-body: 150%;
+  --line-height-body: 175%;
   --line-height-heading: 100%;
 
   --border-radius: 0.278rem;
@@ -394,6 +394,156 @@ main {
   margin-top: 1rem;
 }
 
+/* STAGES CARD STYLES */
+.stages {
+  display: block;
+  margin: 0 auto;
+  width: 100vw;
+}
+
+.stages .stage {
+  width: 100vw;
+  min-height: 70vh;
+  height: auto;
+  padding: 2rem;
+  display: block;
+  position: relative;
+}
+
+.stage:nth-child(odd) { background-color: var(--color-blue-light); }
+.stage:nth-child(even) { background-color: #fff; }
+
+.stage .stage-details {
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.stage .stage-details::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 2rem;
+  height: 3px;
+  background-color: #c4c4c4;
+}
+
+.stage .stage-details::after {
+  content: "";
+  position: absolute;
+  width: 1.39rem;
+  height: 1.39rem;
+  left: calc(2rem - (1.39rem / 2));
+  top: calc(3rem - (1.39rem / 2));
+  background-color: var(--color-blue-secondary);
+  border-radius: 50%;
+}
+
+.stage:nth-child(even) .stage-details::after {
+  background-color: var(--color-teal-secondary);
+}
+
+.stage .stage-details .stage-name {
+  color: var(--color-blue-primary);
+  margin-left: 2rem;
+}
+
+.stage:nth-child(even) .stage-details .stage-name {
+  color: var(--color-teal-primary);
+}
+
+.stage .stage-details .stage-description {
+  margin-left: 2rem;
+}
+
+.stages .stage .article-cards {
+  display: block;
+}
+
+/* Article Card Specific styles */
+.article-cards .article-card {
+  background-color: #fff;
+  border-radius: 3px 10px;
+  padding: 1.67rem;
+  display: block;
+  margin: 2rem auto;
+}
+
+.article-card .article-card-heading .article-title {
+  padding-bottom: 0.5rem;
+}
+
+.article-card .article-card-heading .article-meta {
+  margin: 0 auto 0.75rem;
+  font-size: var(--size-text-small);
+}
+
+.article-card .article-excerpt {
+  margin-bottom: 2rem;
+}
+
+.article-card .article-read-more {
+  text-align: right;
+  float: right;
+}
+
+.article-card .article-card-category {
+  position: relative;
+  color: #fff;
+  border-radius: 3px 3px 3px 2px;
+  margin-left: -2.75rem;
+  padding: 0.56rem;
+  font-size: 0.8rem;
+}
+
+.article-card .article-card-category::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-bottom: 0.56rem solid transparent;
+}
+
+/* Category-specific color coding for Article Cards */
+.article-cards .article-card.medical-information {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-blue-secondary);
+}
+
+.article-cards .article-card.financial-aid {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-yellow-secondary);
+}
+
+.article-cards .article-card.social-support {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-red-secondary);
+}
+
+.article-cards .article-card.others {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25),
+              0px 4px 4px rgba(0, 0, 0, 0.25),
+              inset 0px 4px 0px var(--color-teal-secondary);
+}
+
+.article-card.medical-information .article-card-heading .article-title { color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-heading .article-title { color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
+.article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
+
+.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
+.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
+
+.article-card.medical-information .article-card-category::before { border-right: 1.08rem solid var(--color-blue-secondary); }
+.article-card.financial-aid .article-card-category::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
+.article-card.social-support .article-card-category::before { border-right: 1.08rem solid var(--color-red-secondary); }
+.article-card.others .article-card-category::before { border-right: 1.08rem solid var(--color-teal-secondary); }
+
 /* DESKTOP STYLES */
 @media screen and (min-width: 30rem) {
   :root {
@@ -403,6 +553,8 @@ main {
     --size-text-h4: 1.44em; /* 26px */
     --size-text-h5: 1.33em; /* 24px */
     --size-text-h6: 1.11em; /* 20px */
+
+    --line-height-body: 150%;
   }
 
   /* Slide styles */
@@ -422,6 +574,13 @@ main {
   .subscribe-to-newsletter .button {
     display: inline-block;
     margin-top: initial;
+  }
+
+  /* Article Card Specific styles */
+  .article-cards .article-card {
+    display: inline-block;
+    width: calc(100%/2.25);
+    margin: 1rem;
   }
 }
 
@@ -474,4 +633,83 @@ main {
   .subscribe-to-newsletter .button {
     flex: 1;
   }
+
+  /* STAGE CARD STYLES */
+  .stages .stage {
+    padding: 2.78rem 6rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    position: relative;
+  }
+
+  .stage .stage-details {
+    margin-bottom: 2.78rem;
+  }
+
+  .stage .stage-details::before {
+    top: 4.2rem;
+    width: 4rem;
+  }
+
+  .stage .stage-details::after {
+    left: calc(4rem - (1.39rem / 2));
+    top: calc(4.2rem - (1.39rem / 2));
+  }
+
+  .stage .stage-details .stage-name,
+  .stage .stage-details .stage-description {
+    margin: initial;
+  }
+
+  .stages .stage .article-cards {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+  }
+
+  .article-cards .article-card {
+    display: block;
+    width: auto;
+    margin: initial;
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  /* STAGE CARD STYLES */
+  .stages .stage {
+    padding-left: 8.33rem;
+    padding-right: 8.33rem;
+  }
+
+  .stage .stage-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .stage .stage-details::before {
+    top: 4.2rem;
+    width: 5.56rem;
+  }
+
+  .stage .stage-details::after {
+    left: calc(5.56rem - (1.39rem / 2));
+    top: calc(4.2rem - (1.39rem / 2));
+  }
+
+  .stage .stage-details .stage-name { flex: 1 1 auto; }
+
+  .stage .stage-details .stage-description {
+    flex: 2 1 auto;
+    margin: 0 2.78rem;
+  }
+
+  /* Article Card Specific styles */
+  .stages .stage .article-cards { grid-gap: 3.5rem; }
 }
