@@ -592,7 +592,67 @@ main {
   margin-bottom: 1rem;
 }
 
+/* FOOTER STYLES */
+footer {
+  width: 100vw;
+  background-color: var(--color-blue-primary);
+  color: #fff;
+  display: block;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer h4 { color: var(--color-teal-secondary); }
+footer .sitemap .link { color: #fff; }
+
+footer .sitemap .link:hover,
+footer .sitemap .link:focus,
+footer .sitemap .link:active {
+  color: var(--color-teal-secondary);
+}
+
+footer .sitemap-links {
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-span: all;
+  column-width: 4rem;
+  column-fill: balance;
+  list-style-type: none;
+  margin-bottom: 2rem;
+}
+
+footer .sitemap-links li {
+  margin-bottom: 0.25rem;
+}
+
+footer .org-information a {
+  color: var(--color-teal-secondary);
+}
+
+footer .org-information a:hover,
+footer .org-information a:focus,
+footer .org-information a:active {
+  color: var(--color-teal-primary);
+}
+
+footer .org-information .name {
+  padding-bottom: 0.5rem;
+}
+
+.social-media-links {
+  margin: 1rem auto;
+}
+
+.social-media-links i {
+  margin: 0.25rem;
+}
+
+footer .address,
+footer .copyright { font-size: var(--size-text-small); }
+
+/* ============== */
 /* DESKTOP STYLES */
+/* ============== */
 @media screen and (min-width: 30rem) {
   :root {
     --size-text-h1: 2.67em; /* 48px */
@@ -653,6 +713,28 @@ main {
     display: inline-block;
     vertical-align: top;
     width: 45%;
+  }
+
+  /* FOOTER STYLES */
+  footer { 
+    display: table;
+    text-align: initial;
+  }
+
+  footer::after {
+    content: "";
+    clear: both;
+  }
+
+  footer > * {
+    display: inline-block;
+    width: 45%;
+  }
+
+  footer .sitemap { float: left; }
+  footer .org-information {
+    float: right;
+    text-align: right;
   }
 }
 
@@ -776,6 +858,12 @@ main {
     margin: 1rem;
     flex-grow: 1.5;
   }
+
+  /* FOOTER STYLES */
+  footer .sitemap-links {
+    column-gap: 0;
+    margin-bottom: initial;
+  }
 }
 
 @media screen and (min-width: 80rem) {
@@ -813,4 +901,7 @@ main {
 
   /* NEWSLETTER SIGNUP SECTION STYLES */
   .newsletter-signup .newsletter-info { margin: 1rem 2.22rem; }
+
+  /* FOOTER STYLES */
+  footer .sitemap-links { column-count: 3; }
 }
