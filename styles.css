@@ -373,7 +373,7 @@ main {
 
 /* Slide styles */
 .hero-banner.carousel .slide .description {
-  min-height: 60vh;
+  min-height: 600px;
   height: auto;
   background-color: var(--color-blue-light);
   background-size: cover;
@@ -578,6 +578,20 @@ main {
   width: auto;
 }
 
+/* NEWSLETTER SIGNUP SECTION STYLES */
+.newsletter-signup {
+  width: 100vw;
+  display: block;
+  padding: 2rem;
+  background-color: var(--color-blue-light);
+}
+
+.newsletter-signup .newsletter-info {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 /* DESKTOP STYLES */
 @media screen and (min-width: 30rem) {
   :root {
@@ -591,6 +605,10 @@ main {
     --line-height-body: 150%;
   }
 
+  .hero-banner.carousel .slide .description {
+    min-height: 550px;
+  }
+
   /* Slide styles */
   .hero-banner.carousel .slide .description {
     padding-top: calc(var(--size-header) + 4rem);
@@ -600,7 +618,9 @@ main {
 
   .subscribe-to-newsletter input[type="email"] {
     display: inline-block;
-    width: 70%;
+    min-width: 60%;
+    max-width: 70%;
+    width: auto;
     height: 100%;
     margin-right: 1.11rem;
   }
@@ -733,12 +753,29 @@ main {
 
   /* ABOUT RCPH SECTION STYLES */
   .about {
-    min-height: 360px;
+    min-height: 20rem;
     height: 50vh;
+    max-height: 25rem;
   }
 
   .about .about-preview { width: 50vw; }
   .about .about-information { width: 40%; }
+
+  /* NEWSLETTER SIGNUP SECTION STYLES */
+  .newsletter-signup {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .newsletter-signup .newsletter-info {
+    display: inline-block;
+    width: 40%;
+  }
+
+  .newsletter-signup .subscribe-to-newsletter {
+    margin: 1rem;
+    flex-grow: 1.5;
+  }
 }
 
 @media screen and (min-width: 80rem) {
@@ -773,4 +810,7 @@ main {
 
   /* Article Card Specific styles */
   .stages .stage .article-cards { grid-gap: 3.5rem; }
+
+  /* NEWSLETTER SIGNUP SECTION STYLES */
+  .newsletter-signup .newsletter-info { margin: 1rem 2.22rem; }
 }
