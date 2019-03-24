@@ -313,32 +313,6 @@ header .navigation .active.nav-item a::before {
   transform: scaleY(1);
 }
 
-@media screen and (min-width: 50rem) {
-  header {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-  header .show-menu { display: none; }
-
-  header .navigation {
-    float: right;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    max-width: 40em;
-    width: 50%;
-    height: 100%;
-  }
-
-  header .navigation .nav-item { flex: 0 1 auto; }
-
-  header .navigation .nav-item a {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-}
-
 /* SEARCH STYLES */
 #search-container {
   top: var(--size-header);
@@ -372,4 +346,37 @@ header .navigation .active.nav-item a::before {
   top: 50%;
   font-size: 2rem;
   transform: translateY(-50%);
+}
+
+@media screen and (min-width: 50rem) {
+  header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  header .show-menu { display: none; }
+
+  header .navigation {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 40em;
+    width: 50%;
+    height: 100%;
+  }
+
+  header .navigation .nav-item { flex: 0 1 auto; }
+
+  header .navigation .nav-item a {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #search-container {
+    position: fixed;
+    padding: 2rem 8.33rem;
+    left: 0;
+    right: 0;
+  }
 }
