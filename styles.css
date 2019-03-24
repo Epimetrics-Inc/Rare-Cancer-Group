@@ -650,8 +650,52 @@ footer .org-information .name {
 footer .address,
 footer .copyright { font-size: var(--size-text-small); }
 
+/* CONTACT US STYLES */
+main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
+
+.contact-us {
+  display: block;
+  width: 100%;
+}
+
+.contact-us .contact-form { display: block; }
+
+.contact-form label {
+  width: 100%;
+  color: var(--color-teal-primary);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin: 0.5rem auto 1.5rem;
+}
+
+.contact-info {
+  display: block;
+  width: 100%;
+}
+
+.contact-info a {
+  display: block;
+  color: var(--color-blue-primary);
+  margin-bottom: 1.25rem;
+}
+
+.contact-info a i {
+  margin: 0.25rem 1rem;
+  font-size: 24px;
+  color: var(--color-teal-primary);
+}
+
+.contact-info a:first-of-type i { margin: 0.25rem 0.8rem; }
+
+/* ============== */
+/* ============== */
 /* ============== */
 /* DESKTOP STYLES */
+/* ============== */
+/* ============== */
 /* ============== */
 @media screen and (min-width: 30rem) {
   :root {
@@ -735,6 +779,26 @@ footer .copyright { font-size: var(--size-text-small); }
   footer .org-information {
     float: right;
     text-align: right;
+  }
+
+  /* CONTACT US STYLES */
+  .contact-us {
+    display: inline-block;
+    width: 60%;
+  }
+
+  .contact-form input[type="submit"] {
+    width: initial;
+    margin: initial;
+    float: right;
+  }
+
+  .contact-info {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    margin-top: 3rem;
+    margin-left: 1.5rem;
   }
 }
 
@@ -863,6 +927,20 @@ footer .copyright { font-size: var(--size-text-small); }
   footer .sitemap-links {
     column-gap: 0;
     margin-bottom: initial;
+  }
+
+  /* CONTACT US STYLES */
+  main#contact { padding: calc(var(--size-header) + 2.78rem) 8.33rem 2.78rem; }
+
+  .contact-us {
+    width: 50%;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    width: 40%;
+    margin-left: 3rem;
   }
 }
 
