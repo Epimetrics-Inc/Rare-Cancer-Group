@@ -995,6 +995,19 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   #article .article-header {
     width: 80%;
   }
+
+  /* Article Body styles */
+  #article .article-body figure.image-size-small {
+    width: 15rem;
+  }
+
+  #article .article-body figure.image-size-medium {
+    width: 20rem;
+  }
+
+  #article .article-body figure.image-size-full {
+    width: 30rem;
+  }
 }
 
 @media screen and (min-width: 50rem) {
