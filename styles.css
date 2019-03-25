@@ -100,7 +100,7 @@ dl:not([class]) {
 ul:not([class]) > li,
 ol:not([class]) > li,
 dl:not([class]) > dd {
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -754,6 +754,106 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   background-repeat: no-repeat;
 }
 
+/* ARTICLE STYLES */
+/* Article Header styles */
+#article .hero-banner.article-feature-image {
+  background-size: cover;
+  background-position: center;
+  min-height: 30rem;
+  display: block;
+}
+
+#article .article-header {
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--size-header) + 2rem) 2rem 2rem;
+  color: var(--color-teal-secondary);
+}
+
+#article .article-header .article-title {
+  color: #fff;
+}
+
+#article .article-header .article-meta {
+  margin-bottom: 1rem;
+}
+
+#article .article-header .article-tags {
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: #fff;
+  margin-right: 0.5rem;
+  line-height: 2.5;
+}
+
+#article .article-header .article-tags.medical-information { background-color: var(--color-blue-primary); }
+#article .article-header .article-tags.financial-aid { background-color: var(--color-red-primary); }
+#article .article-header .article-tags.social-support { background-color: var(--color-yellow-primary); }
+#article .article-header .article-tags.others { background-color: var(--color-teal-primary); }
+
+/* Article Body styles */
+#article .article-body { padding: 2rem; }
+
+#article .article-body blockquote {
+  margin: 1.25rem auto;
+  padding: 1.875rem;
+  width: 80vw;
+  border-radius: 10px;
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-primary);
+  position: relative;
+}
+
+#article .article-body blockquote::before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background-color: var(--color-blue-secondary);
+  width: 6px;
+  height: 100%;
+}
+
+#article .article-body figure {
+  width: auto;
+  height: auto;
+  margin: 2rem;
+}
+
+#article .article-body figure.image-size-small,
+#article .article-body figure.image-size-medium,
+#article .article-body figure.image-size-full {
+  width: 100%;
+}
+
+#article .article-body figure.image-align-center,
+#article .article-body figure.image-align-left,
+#article .article-body figure.image-align-right {
+  margin: 2rem auto;
+}
+
+#article .article-body figure img {
+  width: 100%;
+  border-radius: 3px 50px;
+  object-fit: cover;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
+}
+
+#article .article-body figure:hover img {
+  transform: scale(1.015);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 6px 6px rgba(0, 0, 0, 0.10);
+}
+
+#article .article-body figure figcaption {
+  margin-top: 0.5rem;
+  font-size: var(--size-text-small);
+  color: var(--color-text-secondary);
+}
+
 /* ============== */
 /* ============== */
 /* ============== */
@@ -771,6 +871,13 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     --size-text-h6: 1.11em; /* 20px */
 
     --line-height-body: 150%;
+  }
+
+  ul:not([class]) > li,
+  ol:not([class]) > li,
+  dl:not([class]) > dd {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .hero-banner.carousel .slide .description {
@@ -875,6 +982,19 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   }
 
   .hero-banner.text-only .hero-text { width: 60%; }
+
+  /* ARTICLE STYLES */
+  /* Article Header styles */
+  #article .hero-banner.article-feature-image {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  #article .article-header {
+    width: 80%;
+  }
 }
 
 @media screen and (min-width: 50rem) {
@@ -1017,6 +1137,18 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     width: 40%;
     margin-left: 3rem;
   }
+
+  /* Article Body styles */
+  #article .article-body figure.image-align-left {
+    float: left;
+    margin-right: 2rem;
+    /*margin-left: -2rem;*/
+  }
+
+  #article .article-body figure.image-align-right {
+    float: right;
+    /*margin-right: -2rem;*/
+  }
 }
 
 @media screen and (min-width: 80rem) {
@@ -1090,4 +1222,10 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     top: 2rem;
     z-index: 2;
   }
+
+  /* Article Body styles */
+  #article .article-body { padding: 2.78rem 8.33rem; }
+  #article .article-body blockquote { width: 70vw; }
+  #article .article-body figure.image-align-left { margin-left: -2rem; }
+  #article .article-body figure.image-align-right { margin-right: -2rem; }
 }
