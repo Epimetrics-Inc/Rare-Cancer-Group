@@ -690,6 +690,70 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
 
 .contact-info a:first-of-type i { margin: 0.25rem 0.8rem; }
 
+/* ABOUT US STYLES */
+.hero-banner.text-only {
+  display: block;
+  min-height: 20rem;
+  height: 55vh;
+  padding: calc(var(--size-header) + 2rem) 2rem 2rem;
+}
+
+#about .hero-banner.text-only {
+  background-color: var(--color-blue-light);
+}
+
+/* Vision Mission styles */
+.vision-mission {
+  display: block;
+  width: 100vw;
+  min-height: 20rem;
+}
+
+.vision-mission > * {
+  width: 100%;
+  position: relative;
+  padding: 2rem 3rem;
+}
+
+.vision-mission > * > h2 { color: var(--color-teal-primary); }
+
+.vision-mission > * > h2::before {
+  content: "";
+  position: absolute;
+  top: 2.9rem;
+  left: 0;
+  width: 1.5rem;
+  height: 3px;
+  background-color: #c4c4c4;
+}
+
+.vision-mission > * > h2::after {
+  content: "";
+  position: absolute;
+  width: 1.39rem;
+  height: 1.39rem;
+  left: calc(1.5rem - (1.39rem / 2));
+  top: calc(2.9rem - (1.39rem / 2));
+  background-color: var(--color-teal-secondary);
+  border-radius: 50%;
+}
+
+.vision-mission > .mission::before {
+  content: "";
+  display: none;
+}
+
+.big-parallax-image {
+  width: 100vw;
+  min-height: 30rem;
+  height: 60vh;
+  display: block;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 /* ============== */
 /* ============== */
 /* ============== */
@@ -800,6 +864,17 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     margin-top: 3rem;
     margin-left: 1.5rem;
   }
+
+  /* ABOUT US STYLES */
+  .hero-banner.text-only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: initial;
+    padding-top: var(--size-header);
+  }
+
+  .hero-banner.text-only .hero-text { width: 60%; }
 }
 
 @media screen and (min-width: 50rem) {
@@ -982,4 +1057,37 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
 
   /* FOOTER STYLES */
   footer .sitemap-links { column-count: 3; }
+
+  /* ABOUT US STYLES */
+  .vision-mission {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .vision-mission > * {
+    width: 50%;
+    padding: 2.78rem 5rem 2.78rem 8.33rem;
+  }
+
+  .vision-mission > * > h2::before {
+    top: 4rem;
+    width: 5.56rem;
+  }
+
+  .vision-mission > * > h2::after {
+    left: calc(5.56rem - (1.39rem / 2));
+    top: calc(4rem - (1.39rem / 2));
+  }
+
+  .vision-mission > .mission::before {
+    content: "";
+    width: 5px;
+    height: 4.44rem;
+    background-color: #7FB7BE;
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    z-index: 2;
+  }
 }
