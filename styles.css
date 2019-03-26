@@ -930,6 +930,43 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   color: var(--color-teal-primary);
 }
 
+/* RESOURCES STYLES */
+.resources .hero-banner.text-only { background-color: var(--color-teal-light); }
+#diagnostics .hero-banner.text-only { background-color: var(--color-red-light); }
+#treatment .hero-banner.text-only { background-color: var(--color-yellow-light); }
+#survivorship .hero-banner.text-only { background-color: var(--color-blue-light); }
+
+.resources .hero-banner.text-only .hero-text h1 { color: var(--color-teal-primary); }
+#diagnostics .hero-banner.text-only .hero-text h1 { color: var(--color-red-primary); }
+#treatment .hero-banner.text-only .hero-text h1 { color: var(--color-yellow-primary); }
+#survivorship .hero-banner.text-only .hero-text h1 { color: var(--color-blue-primary); }
+
+.resources .stage:nth-child(odd) { background-color: #fff; }
+
+.resources .stage:nth-child(even) { background-color: var(--color-teal-light); }
+#diagnostics .stage:nth-child(even) { background-color: var(--color-red-light); }
+#treatment .stage:nth-child(even) { background-color: var(--color-yellow-light); }
+#survivorship .stage:nth-child(even) { background-color: var(--color-blue-light); }
+
+.resources .stage:nth-child(odd) .stage-details::after { background-color: var(--color-teal-secondary); }
+#diagnostics .stage:nth-child(odd) .stage-details::after { background-color: var(--color-red-secondary); }
+#treatment .stage:nth-child(odd) .stage-details::after { background-color: var(--color-yellow-secondary); }
+#survivorship .stage:nth-child(odd) .stage-details::after { background-color: var(--color-blue-secondary); }
+
+.resources .stage:nth-child(even) .stage-details::after { background-color: var(--color-teal-primary); }
+#diagnostics .stage:nth-child(even) .stage-details::after { background-color: var(--color-red-primary); }
+#treatment .stage:nth-child(even) .stage-details::after { background-color: var(--color-yellow-primary); }
+#survivorship .stage:nth-child(even) .stage-details::after { background-color: var(--color-blue-primary); }
+
+.resources .stage:nth-child(odd) .stage-details .stage-name { color: var(--color-teal-primary); }
+#diagnostics .stage:nth-child(odd) .stage-details .stage-name { color: var(--color-red-primary); }
+#treatment .stage:nth-child(odd) .stage-details .stage-name { color: var(--color-yellow-primary); }
+#survivorship .stage:nth-child(odd) .stage-details .stage-name { color: var(--color-blue-primary); }
+
+#diagnostics .stage:nth-child(even) .stage-details .stage-name { color: var(--color-red-primary); }
+#treatment .stage:nth-child(even) .stage-details .stage-name { color: var(--color-yellow-primary); }
+#survivorship .stage:nth-child(even) .stage-details .stage-name { color: var(--color-blue-primary); }
+
 /* ============== */
 /* ============== */
 /* ============== */
