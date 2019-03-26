@@ -967,6 +967,12 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
 #treatment .stage:nth-child(even) .stage-details .stage-name { color: var(--color-yellow-primary); }
 #survivorship .stage:nth-child(even) .stage-details .stage-name { color: var(--color-blue-primary); }
 
+/* SEARCH RESULTS PAGE STYLES */
+#search-results .hero-banner.text-only {
+  min-height: initial;
+  height: 0;
+}
+
 /* ============== */
 /* ============== */
 /* ============== */
