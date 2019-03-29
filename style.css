@@ -571,7 +571,7 @@ main {
 
 .about .about-preview img {
   width: 100%;
-  height: 100%;
+  height: 100% !important;
   object-fit: cover;
 }
 
@@ -580,7 +580,7 @@ main {
   margin: 2.22rem;
 }
 
-.about .about-information .about-excerpt > p {
+.about .about-information p {
   margin: 0 auto 1.5rem;
 }
 
@@ -1248,7 +1248,7 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   /* ABOUT RCPH SECTION STYLES */
   .about {
     min-height: 20rem;
-    height: 50vh;
+    height: 55vh;
     max-height: 25rem;
   }
 

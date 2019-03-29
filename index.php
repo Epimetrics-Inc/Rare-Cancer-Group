@@ -255,12 +255,10 @@ get_header();
 
     <!-- About RCPH -->
     <section class="about">
-      <div class="about-preview"><img src="<?php get_theme_file_uri('images/hero-1.jpg'); ?>" alt=""></div>
+      <?php dynamic_sidebar( 'about_us_preview' ); ?>
       <div class="about-information">
         <h2 class="about-heading">About Rare Cancers Philippines</h2>
-        <div class="about-excerpt">
-          <p>Excerpt of what Rare Cancers Philippines, maybe in around 3 lines minimum. More words here to fill up the remaining space. The excerpt can be three to five lines so that this looks filled up.</p>
-        </div>
+        <?php dynamic_sidebar( 'about_us_excerpt' ); ?>
         <a href="about.html" class="blue filled button">Learn More</a>
       </div>
     </section>
