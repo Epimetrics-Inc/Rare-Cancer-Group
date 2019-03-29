@@ -1,4 +1,14 @@
-/* Main Stylesheet for Rare Cancers PH site */
+@charset "UTF-8";
+/*
+Theme Name: Rare Cancers PH
+Author: @ChiSenires
+Author URI: http://chisenires.ph
+Description: Custom built WordPress theme made by Epimetrics, Inc. for Rare Cancers Philippines Group.
+Version: 1.0
+Text Domain: rare-cancers-ph
+
+Main Stylesheet for Rare Cancers PH site
+*/
 
 @import url('https://fonts.googleapis.com/css?family=Karla:700|Lato:400,700');
 
@@ -285,13 +295,13 @@ header #show-menu:checked ~ .navigation {
   padding-bottom: 1rem;
 }
 
-header .navigation .nav-item {
+header .navigation .menu-item {
   margin: 0 auto;
   display: block;
   text-align: center;
 }
 
-header .navigation .nav-item a {
+header .navigation .menu-item a {
   color: var(--color-blue-primary);
   border-bottom: none;
   padding: 0.75rem 0;
@@ -300,7 +310,7 @@ header .navigation .nav-item a {
   position: relative;
 }
 
-header .navigation .nav-item a::before {
+header .navigation .menu-item a::before {
   content: "";
   z-index: initial;
   height: 3px;
@@ -309,13 +319,13 @@ header .navigation .nav-item a::before {
   transition: transform 300ms;
 }
 
-header .navigation .nav-item a:hover::before,
-header .navigation .active.nav-item a::before {
+header .navigation .menu-item a:hover::before,
+header .navigation .active.menu-item a::before {
   transform: scaleY(1);
 }
 
 /* SEARCH STYLES */
-#search-container {
+.search-container {
   top: var(--size-header);
   z-index: 1001;
   box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.15);
@@ -325,22 +335,22 @@ header .navigation .active.nav-item a::before {
   display: none;
 }
 
-#search-container .search-field {
+.search-container .search-field {
   position: relative;
   display: block;
 }
 
-#search-container .search-field input {
+.search-container .search-field input {
   font-size: 2rem;
   width: 100%;
   padding: 1rem;
 }
 
-#search-container .search-field input::placeholder {
+.search-container .search-field input::placeholder {
   opacity: 0.5;
 }
 
-#search-container .search-field i {
+.search-container .search-field i {
   color: var(--color-text-secondary);
   position: absolute;
   right: 2rem;
@@ -603,13 +613,6 @@ footer {
 }
 
 footer h4 { color: var(--color-teal-secondary); }
-footer .sitemap .link { color: #fff; }
-
-footer .sitemap .link:hover,
-footer .sitemap .link:focus,
-footer .sitemap .link:active {
-  color: var(--color-teal-secondary);
-}
 
 footer .sitemap-links {
   column-count: 2;
@@ -623,6 +626,25 @@ footer .sitemap-links {
 
 footer .sitemap-links li {
   margin-bottom: 0.25rem;
+}
+
+footer .sitemap-links li a {
+  color: inherit;
+  text-shadow: none;
+  border-bottom: none;
+  position: initial;
+  padding: initial;
+  z-index: initial;
+}
+
+footer .sitemap-links li a::before {
+  display: none;
+}
+
+footer .sitemap-links li a:hover,
+footer .sitemap-links li a:focus,
+footer .sitemap-links li a:active {
+  color: var(--color-teal-primary);
 }
 
 footer .org-information a {
@@ -1146,14 +1168,14 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     height: 100%;
   }
 
-  header .navigation .nav-item { flex: 0 1 auto; }
+  header .navigation .menu-item { flex: 0 1 auto; }
 
-  header .navigation .nav-item a {
+  header .navigation .menu-item a {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 
-  #search-container {
+  .search-container {
     position: fixed;
     padding: 2rem 8.33rem;
     left: 0;
