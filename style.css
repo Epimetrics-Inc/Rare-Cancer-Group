@@ -498,7 +498,7 @@ main {
   float: right;
 }
 
-.article-card .article-card-category {
+.article-card .article-read-more + a {
   position: relative;
   color: #fff;
   border-radius: 3px 3px 3px 2px;
@@ -507,7 +507,7 @@ main {
   font-size: 0.8rem;
 }
 
-.article-card .article-card-category::before {
+.article-card .article-read-more + a::before {
   content: "";
   position: absolute;
   top: 100%;
@@ -545,15 +545,15 @@ main {
 .article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
 .article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
 
-.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
-.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
-.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
-.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
+.article-card.medical-information .article-read-more + a { background-color: var(--color-blue-primary); }
+.article-card.financial-aid .article-read-more + a { background-color: var(--color-yellow-primary); }
+.article-card.social-support .article-read-more + a { background-color: var(--color-red-primary); }
+.article-card.others .article-read-more + a { background-color: var(--color-teal-primary); }
 
-.article-card.medical-information .article-card-category::before { border-right: 1.08rem solid var(--color-blue-secondary); }
-.article-card.financial-aid .article-card-category::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
-.article-card.social-support .article-card-category::before { border-right: 1.08rem solid var(--color-red-secondary); }
-.article-card.others .article-card-category::before { border-right: 1.08rem solid var(--color-teal-secondary); }
+.article-card.medical-information .article-read-more + a::before { border-right: 1.08rem solid var(--color-blue-secondary); }
+.article-card.financial-aid .article-read-more + a::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
+.article-card.social-support .article-read-more + a::before { border-right: 1.08rem solid var(--color-red-secondary); }
+.article-card.others .article-read-more + a::before { border-right: 1.08rem solid var(--color-teal-secondary); }
 
 /* ABOUT RCPH SECTION STYLES */
 .about {
@@ -1232,7 +1232,7 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
 
   .stages .stage .article-cards {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
   }
