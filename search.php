@@ -14,8 +14,8 @@ get_header(); ?>
   <div class="stages">
     <section class="stage">
       <div class="stage-details">
-        <h1 class="stage-name" id="title"><?php echo $wp_query->found_posts; ?>
-        <?php _e( 'Search Results Found For', 'locale' ); ?>: "<?php the_search_query(); ?>"</h1>
+        <h1 class="stage-name" id="title"><?php #echo $wp_query->found_posts; ?>
+        <?php _e( 'Search Results for', 'locale' ); ?>: "<?php the_search_query(); ?>"</h1>
       </div>
       <div class="article-cards">
         <?php query_posts('showposts=3'); if (have_posts()) : ?>
@@ -26,7 +26,7 @@ get_header(); ?>
           </div>
           <p class="article-excerpt"><?php echo substr(get_the_excerpt(), 0,200); ?></p>
           <a href="<?php echo get_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
-          <a href="#" class="article-card-category"><?php the_tags(); ?></a>
+          <!-- <a href="#" class="article-card-category"> --><?php the_tags(''); ?><!-- </a> -->
         </div>
         <?php endif; ?>
       </div>
