@@ -128,7 +128,7 @@ a {
   transition: all 250ms;
 }
   
-a:not([class]),
+a:not([class]):not([rel="tag"]),
 a.article-read-more {
   color: var(--color-blue-secondary);
   text-shadow: 0 1px 0 var(--color-blue-light);
@@ -139,7 +139,7 @@ a.article-read-more {
   z-index: 100;
 }
 
-a:not([class])::before,
+a:not([class]):not([rel="tag"])::before,
 a.article-read-more::before {
   content: "";
   z-index: -1;
@@ -152,9 +152,9 @@ a.article-read-more::before {
   transition: height 250ms;
 }
 
-a:not([class]):hover,
-a:not([class]):focus,
-a:not([class]):active,
+a:not([class]):not([rel="tag"]):hover,
+a:not([class]):not([rel="tag"]):focus,
+a:not([class]):not([rel="tag"]):active,
 a.article-read-more:hover,
 a.article-read-more:focus,
 a.article-read-more:active {
@@ -162,14 +162,14 @@ a.article-read-more:active {
   border-color: transparent;
 }
 
-a:not([class]):hover::before,
-a:not([class]):focus::before,
-a:not([class]):active::before,
+/*a:not([class]):not([rel="tag"]):hover::before,
+a:not([class]):not([rel="tag"]):focus::before,
+a:not([class]):not([rel="tag"]):active::before,
 a.article-read-more:hover::before,
 a.article-read-more:focus::before,
 a.article-read-more:active::before {
   height: 100%;
-}
+}*/
 
 /* button */
 .button {
@@ -498,16 +498,16 @@ main {
   float: right;
 }
 
-.article-card .article-read-more + a {
+.article-card a[rel~="tag"] {
   position: relative;
   color: #fff;
   border-radius: 3px 3px 3px 2px;
   margin-left: -2.75rem;
   padding: 0.56rem;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
-.article-card .article-read-more + a::before {
+.article-card a[rel~="tag"]::before {
   content: "";
   position: absolute;
   top: 100%;
@@ -545,15 +545,15 @@ main {
 .article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
 .article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
 
-.article-card.medical-information .article-read-more + a { background-color: var(--color-blue-primary); }
-.article-card.financial-aid .article-read-more + a { background-color: var(--color-yellow-primary); }
-.article-card.social-support .article-read-more + a { background-color: var(--color-red-primary); }
-.article-card.others .article-read-more + a { background-color: var(--color-teal-primary); }
+.article-card.medical-information a[rel~="tag"] { background-color: var(--color-blue-primary); }
+.article-card.financial-aid a[rel~="tag"] { background-color: var(--color-yellow-primary); }
+.article-card.social-support a[rel~="tag"] { background-color: var(--color-red-primary); }
+.article-card.others a[rel~="tag"] { background-color: var(--color-teal-primary); }
 
-.article-card.medical-information .article-read-more + a::before { border-right: 1.08rem solid var(--color-blue-secondary); }
-.article-card.financial-aid .article-read-more + a::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
-.article-card.social-support .article-read-more + a::before { border-right: 1.08rem solid var(--color-red-secondary); }
-.article-card.others .article-read-more + a::before { border-right: 1.08rem solid var(--color-teal-secondary); }
+.article-card.medical-information a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-blue-secondary); }
+.article-card.financial-aid a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
+.article-card.social-support a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-red-secondary); }
+.article-card.others a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-teal-secondary); }
 
 /* ABOUT RCPH SECTION STYLES */
 .about {
@@ -629,22 +629,22 @@ footer .sitemap-links li {
 }
 
 footer .sitemap-links li a {
-  color: inherit;
-  text-shadow: none;
-  border-bottom: none;
-  position: initial;
-  padding: initial;
-  z-index: initial;
+  color: inherit !important;
+  text-shadow: none !important;
+  border-bottom: none !important;
+  position: initial !important;
+  padding: initial !important;
+  z-index: initial !important;
 }
 
 footer .sitemap-links li a::before {
-  display: none;
+  display: none !important;
 }
 
 footer .sitemap-links li a:hover,
 footer .sitemap-links li a:focus,
 footer .sitemap-links li a:active {
-  color: var(--color-teal-primary);
+  color: var(--color-teal-primary) !important;
 }
 
 footer .org-information a {
