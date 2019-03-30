@@ -81,90 +81,55 @@ function add_search_form($items, $args) {
         return $items;
 }
 
-// Adding Different sections to the different parts of the RCPH site
-if( function_exists('acf_add_local_field_group') ) {
-  acf_add_local_field_group(
-    array(
-      // adding About Us Excerpt to Home Page
-      'key' => 'group_5c9e009004ac7',
-      'title' => 'About Us - Home Page',
-      'fields' => array(
-        array(
-          'key' => 'field_5c9e0095905d1',
-          'label' => 'About Us Description',
-          'name' => 'about_us_description',
-          'type' => 'textarea',
-          'instructions' => 'Write a quick excerpt on what Rare Cancers Philippines is. Should be about 3 lines minimum and 5 lines maximum.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array(
-            'width' => '',
-            'class' => 'about-excerpt',
-            'id' => '',
-          ),
-          'default_value' => '',
-          'placeholder' => '',
-          'maxlength' => '',
-          'rows' => '',
-          'new_lines' => 'wpautop',
-        ),
-        array(
-          'key' => 'field_5c9e010b905d2',
-          'label' => 'RCPH Preview Images',
-          'name' => 'rcph_preview_images',
-          'type' => 'image',
-          'instructions' => 'Upload at least one image that shows what Rare Cancer Philippines is all about.',
-          'required' => 1,
-          'conditional_logic' => 0,
-          'wrapper' => array(
-            'width' => '',
-            'class' => 'about-preview',
-            'id' => '',
-          ),
-          'return_format' => 'array',
-          'preview_size' => 'thumbnail',
-          'library' => 'all',
-          'min_width' => '',
-          'min_height' => '',
-          'min_size' => '',
-          'max_width' => '',
-          'max_height' => '',
-          'max_size' => '',
-          'mime_types' => '',
-        ),
-      ),
-      'location' => array(
-        array(
-          array(
-            'param' => 'post_type',
-            'operator' => '==',
-            'value' => 'post',
-          ),
-        ),
-      ),
-      'menu_order' => 0,
-      'position' => 'normal',
-      'style' => 'default',
-      'label_placement' => 'top',
-      'instruction_placement' => 'label',
-      'hide_on_screen' => array(
-        0 => 'permalink',
-        1 => 'the_content',
-        2 => 'excerpt',
-        3 => 'discussion',
-        4 => 'comments',
-        5 => 'revisions',
-        6 => 'slug',
-        7 => 'author',
-        8 => 'format',
-        9 => 'page_attributes',
-        10 => 'featured_image',
-        11 => 'categories',
-        12 => 'tags',
-        13 => 'send-trackbacks',
-      ),
-      'active' => true,
-      'description' => '',
-    )
+// Custom Post Types Start
+function rare_cancers_ph_custom_post_type() {
+  // Set UI labels for Custom Post Type
+  $labels = array(
+    'name'                => _x( 'Slides', 'Post Type General Name', 'rare-cancers-ph' ),
+    'singular_name'       => _x( 'Slide', 'Post Type Singular Name', 'rare-cancers-ph' ),
+    'menu_name'           => __( 'Slides', 'rare-cancers-ph' ),
+    'parent_item_colon'   => __( 'Parent Slide', 'rare-cancers-ph' ),
+    'all_items'           => __( 'All Slides', 'rare-cancers-ph' ),
+    'view_item'           => __( 'View Slide', 'rare-cancers-ph' ),
+    'add_new_item'        => __( 'Add New Slide', 'rare-cancers-ph' ),
+    'add_new'             => __( 'Add New', 'rare-cancers-ph' ),
+    'edit_item'           => __( 'Edit Slide', 'rare-cancers-ph' ),
+    'update_item'         => __( 'Update Slide', 'rare-cancers-ph' ),
+    'search_items'        => __( 'Search Slide', 'rare-cancers-ph' ),
+    'not_found'           => __( 'Not Found', 'rare-cancers-ph' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'rare-cancers-ph' ),
   );
+     
+// Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'slides', 'rare-cancers-ph' ),
+        'description'         => __( 'Slide news and reviews', 'rare-cancers-ph' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'          => array( 'locations' ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => false,
+        'capability_type'     => 'page',
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'slides', $args );
 }
+
+add_action( 'init', 'rare_cancers_ph_custom_post_type' );

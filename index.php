@@ -6,27 +6,39 @@ get_header();
 <main id="home">
     <!-- HERO BANNER -->
     <ul class="hero-banner carousel">
-      <li class="slide">
-        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url(<?php get_theme_file_uri('images/hero-1.jpg'); ?>);">
-          <h1>Learn all about what you're going through.</h1>
-          <p>Text description to further encourage people to subscribe to the website’s newsletter if there is any</p>
-          <div class="subscribe-to-newsletter"><input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button">Subscribe</a></div>
-        </div>
-      </li>
-      <li class="slide">
-        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url(<?php get_theme_file_uri('images/hero-2.jpg'); ?>);">
-          <h1>Another header message</h1>
-          <p>This is to demonstrate the carousel on the hero banner of the website.</p>
-          <a href="#" class="blue filled button">Sample CTA</a>
-        </div>
-      </li>
-      <li class="slide">
-        <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url(<?php get_theme_file_uri('images/hero-3.jpg'); ?>);">
-          <h1>Yet another example</h1>
-          <p>It's important to note that when setting up slides for the carousel, there always has to be a call-to-action within it.</p>
-          <a href="#" class="blue filled button">Like This</a>
-        </div>
-      </li>
+      <?php
+        # Define query to load all slides for the home page
+        $args = array(
+          'post_type'       => 'slides',
+          'order'           => ASC,
+        );
+
+        # Get the Slides for the carousel in the front page
+        $the_query = new WP_Query( $args );
+      ?>
+
+      <?php if ( $the_query->have_posts() ) : ?>
+        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <li class="slide">
+            <?php
+              # getting slide background image from the featured image
+              $slide_bg_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+            ?>
+            <div class="description" style="background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 39.29%, rgba(255, 255, 255, 0) 101.6%), url('<?php echo $slide_bg_image[0]; ?>');">
+              <h1><?php the_title(); ?></h1>
+              <?php the_content(); ?>
+              <?php if ( get_field( 'call_to_action_type' ) == 'subscribe' ) : ?>
+                <div class="subscribe-to-newsletter">
+                  <input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
+                </div>
+              <?php else: ?>
+                <a href="<?php the_field( 'call_to_action_link' ); ?>" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
+              <?php endif; ?>
+            </div>
+          </li>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+      <?php endif; wp_reset_query(); ?>
     </ul>
 
     <!-- STAGES -->
