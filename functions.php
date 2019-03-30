@@ -52,7 +52,8 @@ function rare_cancers_ph_scripts() {
 add_action( 'wp_enqueue_scripts', 'rare_cancers_ph_scripts' );
 
 function rare_cancers_ph_widgets_init() {
-  // About Us Excerpt, found in Home Page
+  // Home Page widgets
+  // About Us Excerpt
   register_sidebar(
     array(
       'name'          => 'About Us Excerpt',
@@ -68,6 +69,18 @@ function rare_cancers_ph_widgets_init() {
       'id'            => 'about_us_preview',
       'before_widget' => '<div class="about-preview">',
       'after_widget'  => '</div>',
+    )
+  );
+
+  // Newsletter Section
+  register_sidebar(
+    array(
+      'name'            => 'Newsletter Section Info',
+      'id'              => 'newsletter_info',
+      'before_widget'   => '<div class="newsletter-info">',
+      'after_widget'    => '</div>',
+      'before_title'    => '<h2>',
+      'after_title'     => '</h2>',
     )
   );
 

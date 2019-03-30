@@ -30,9 +30,6 @@ get_header();
               <?php the_content(); ?>
               <?php if ( get_field( 'call_to_action_type' ) == 'subscribe' ) : ?>
                 <?php dynamic_sidebar( 'newsletter_widget' ); ?>
-                <!-- <div class="subscribe-to-newsletter">
-                  <input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
-                </div> -->
               <?php else: ?>
                 <a href="<?php the_field( 'call_to_action_link' ); ?>" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
               <?php endif; ?>
@@ -278,12 +275,6 @@ get_header();
     </section>
 
     <!-- Newsletter CTA -->
-    <section class="newsletter-signup">
-      <div class="newsletter-info">
-        <h2>Subscribe to our newsletter</h2>
-        <div class="description">Text description to further encourage people to subscribe to the website’s newsletter if there is any</div>
-      </div>
-      <div class="subscribe-to-newsletter"><input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button">Subscribe</a></div>
-    </section>
+    <?php get_template_part( 'template-parts/section-newsletter', 'newsletter-section' ); ?>
 
 <?php get_footer(); ?>
