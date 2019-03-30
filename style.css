@@ -395,14 +395,48 @@ main {
 
 .subscribe-to-newsletter { display: block; }
 
-.subscribe-to-newsletter input[type="email"] {
+.subscribe-to-newsletter input[type="email"],
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-email,
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-email {
+  font-size: var(--size-text-body);
+  padding: 0.8rem 1.3rem;
+  border-radius: var(--border-radius);
+  border: 3px solid transparent;
+  background-color: #fafafa;
+  transition: outline 400ms ease;
   display: block;
   width: 100%;
 }
 
-.subscribe-to-newsletter .button {
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-email:focus {
+  outline-color: var(--color-blue-secondary);
+}
+
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-email::placeholder {
+  opacity: 0.4;
+}
+
+.subscribe-to-newsletter .button,
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit {
+  text-align: center;
+  cursor: pointer;
+  text-shadow: none;
+  font-size: var(--size-text-button);
+  font-family: var(--font-heading);
+  padding: 0.8rem 1.3rem;
+  border: 3px solid transparent;
+  border-radius: var(--border-radius);
+  width: auto;
+  transition: all 300ms;
   display: block;
   margin-top: 1rem;
+  background-color: var(--color-blue-primary);
+}
+
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit:hover,
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit:focus,
+.subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit:active {
+  background-color: var(--color-blue-secondary);
 }
 
 /* STAGES CARD STYLES */
@@ -1032,7 +1066,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     padding-right: 100px;
   }
 
-  .subscribe-to-newsletter input[type="email"] {
+  .subscribe-to-newsletter input[type="email"],
+  .subscribe-to-newsletter .tnp-widget-minimal input.tnp-email {
     display: inline-block;
     min-width: 60%;
     max-width: 70%;
@@ -1041,7 +1076,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     margin-right: 1.11rem;
   }
 
-  .subscribe-to-newsletter .button {
+  .subscribe-to-newsletter .button,
+  .subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit {
     display: inline-block;
     margin-top: initial;
   }
@@ -1196,7 +1232,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     width: 36rem;
   }
 
-  .subscribe-to-newsletter .button {
+  .subscribe-to-newsletter .button,
+  .subscribe-to-newsletter .tnp-widget-minimal input.tnp-submit {
     flex: 1;
   }
 

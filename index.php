@@ -29,9 +29,10 @@ get_header();
               <h1><?php the_title(); ?></h1>
               <?php the_content(); ?>
               <?php if ( get_field( 'call_to_action_type' ) == 'subscribe' ) : ?>
-                <div class="subscribe-to-newsletter">
+                <?php dynamic_sidebar( 'newsletter_widget' ); ?>
+                <!-- <div class="subscribe-to-newsletter">
                   <input type="email" placeholder="Enter email address..." name="newsletter_email"><a href="#" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
-                </div>
+                </div> -->
               <?php else: ?>
                 <a href="<?php the_field( 'call_to_action_link' ); ?>" class="blue filled button"><?php the_field( 'call_to_action_label' ); ?></a>
               <?php endif; ?>
