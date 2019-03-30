@@ -42,226 +42,46 @@ get_header();
 
     <!-- STAGES -->
     <div class="stages">
-      <section class="stage">
-        <div class="stage-details">
-          <h1 class="stage-name">Community</h1>
-          <p class="stage-description">Something about the community stage. This should be short to explain what kind of articles will be seen here. Will contain all articles relating to community. <a href="community.html">See all Community articles &raquo;</a></p>
-        </div>
-        <div class="article-cards">
-          <div class="article-card medical-information">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
+      <?php foreach ( get_categories( array( 'order' => ASC, ) ) as $category ) : ?>
+        <?php if ( $category->count > 0 ) : ?>
+          <section class="stage">
+            <div class="stage-details">
+              <h1 class="stage-name"><?php echo $category->cat_name; ?></h1>
+              <p class="stage-description"><?php echo $category->category_description; ?> <a href="<?php echo esc_url( get_category_link( $category->cat_ID ) ); ?>"><?php echo "See all " . $category->cat_name . " articles &raquo;"; ?></a></p>
             </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Medical Information</a>
-          </div>
-          <div class="article-card financial-aid">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
+            <div class="article-cards">
+              <?php
+                # Load all posts for the specific category
+                $category_args = array(
+                  'category_name' => $category->cat_name,
+                );
+              ?>
+
+              <?php while( have_posts() ) : the_post(); ?>
+                <?php
+                  $article_tag = get_the_tags();
+                  $tag_link = get_tag_link( $article_tag->term_id );
+                ?>
+                <div class="article-card <?php echo $article_tag[0]->slug; ?>">
+                  <div class="article-card-heading">
+                    <?php the_title( '<h3 class="article-title">', '</h3>' ); ?>
+                    <div class="article-meta">
+                      <?php the_date( 'j F Y', '<span class="article-date">', '</span>' ); ?>
+                      <span class="article-meta-separator">|</span>
+                      <?php the_time('H:i A', '<span class="article-time">', '</span>'); ?>
+                    </div>
+                    <div class="article-excerpt">
+                      <?php echo wp_trim_words( get_the_content(), 40, '...' ); ?>
+                    </div>
+                    <a href="<?php the_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
+                    <?php the_tags(''); ?>
+                  </div>
+                </div>
+              <?php endwhile; wp_reset_query(); ?>
             </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Financial Aid</a>
-          </div>
-          <div class="article-card social-support">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Social Support</a>
-          </div>
-          <div class="article-card others">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Others</a>
-          </div>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-details">
-          <h1 class="stage-name">Diagnostics</h1>
-          <p class="stage-description">Something about the diagnostics stage. This should be short to explain what kind of articles will be seen here. Will contain all articles relating to diagnostics. <a href="diagnostics.html">See all Diagnostics articles &raquo;</a></p>
-        </div>
-        <div class="article-cards">
-          <div class="article-card medical-information">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Medical Information</a>
-          </div>
-          <div class="article-card financial-aid">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Financial Aid</a>
-          </div>
-          <div class="article-card social-support">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Social Support</a>
-          </div>
-          <div class="article-card others">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Others</a>
-          </div>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-details">
-          <h1 class="stage-name">Treatment</h1>
-          <p class="stage-description">Something about the treatment stage. This should be short to explain what kind of articles will be seen here. Will contain all articles relating to treatment. <a href="treatment.html">See all Treatment articles &raquo;</a></p>
-        </div>
-        <div class="article-cards">
-          <div class="article-card medical-information">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Medical Information</a>
-          </div>
-          <div class="article-card financial-aid">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Financial Aid</a>
-          </div>
-          <div class="article-card social-support">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Social Support</a>
-          </div>
-          <div class="article-card others">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Others</a>
-          </div>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-details">
-          <h1 class="stage-name">Survivorship</h1>
-          <p class="stage-description">Something about the survivorship stage. This should be short to explain what kind of articles will be seen here. Will contain all articles relating to survivorship. <a href="survivorship.html">See all Survivorship articles &raquo;</a></p>
-        </div>
-        <div class="article-cards">
-          <div class="article-card medical-information">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Medical Information</a>
-          </div>
-          <div class="article-card financial-aid">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Financial Aid</a>
-          </div>
-          <div class="article-card social-support">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Social Support</a>
-          </div>
-          <div class="article-card others">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Others</a>
-          </div>
-        </div>
-      </section>
-      <section class="stage">
-        <div class="stage-details">
-          <h1 class="stage-name">Legacy</h1>
-          <p class="stage-description">Something about the legacy stage. This should be short to explain what kind of articles will be seen here. Will contain all articles relating to legacy. <a href="legacy.html">See all Legacy articles &raquo;</a></p>
-        </div>
-        <div class="article-cards">
-          <div class="article-card medical-information">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Medical Information</a>
-          </div>
-          <div class="article-card financial-aid">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Financial Aid</a>
-          </div>
-          <div class="article-card social-support">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Social Support</a>
-          </div>
-          <div class="article-card others">
-            <div class="article-card-heading">
-              <h3 class="article-title">Sample article title that is long</h3>
-              <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-            </div>
-            <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-            <a href="article.html" class="article-read-more">Read more &raquo;</a>
-            <a href="#" class="article-card-category">Others</a>
-          </div>
-        </div>
-      </section>
+          </section>
+        <?php endif; ?>
+      <?php endforeach; ?>
     </div>
 
     <!-- About RCPH -->
