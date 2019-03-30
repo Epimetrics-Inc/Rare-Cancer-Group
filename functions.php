@@ -81,6 +81,23 @@ function add_search_form($items, $args) {
         return $items;
 }
 
+// Custom Taxonomies start
+function rare_cancers_ph_site_locations_init() {
+  // create a new taxonomy
+  register_taxonomy(
+    'site_locations',
+    array(
+      'label' => __( 'Site Locations' ),
+      'rewrite' => array( 'slug' => 'site_location' ),
+      'capabilities' => array(
+        'assign_terms' => 'edit_tags',
+        'edit_terms' => 'manage_tags'
+      )
+    )
+  );
+}
+add_action( 'init', 'rare_cancers_ph_site_locations_init' );
+
 // Custom Post Types Start
 function rare_cancers_ph_custom_post_type() {
   // Set UI labels for Custom Post Type
@@ -107,9 +124,9 @@ function rare_cancers_ph_custom_post_type() {
         'description'         => __( 'Slide news and reviews', 'rare-cancers-ph' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'categories', 'thumbnail', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'locations' ),
+        'taxonomies'          => array( 'site_locations' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -123,8 +140,8 @@ function rare_cancers_ph_custom_post_type() {
         'menu_position'       => 5,
         'can_export'          => true,
         'has_archive'         => true,
-        'exclude_from_search' => false,
-        'publicly_queryable'  => false,
+        'exclude_from_search' => true,
+        'publicly_queryable'  => true,
         'capability_type'     => 'page',
     );
      

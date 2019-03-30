@@ -11,6 +11,7 @@ get_header();
         $args = array(
           'post_type'       => 'slides',
           'order'           => ASC,
+          'site_locations'  => 'home',
         );
 
         # Get the Slides for the carousel in the front page
