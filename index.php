@@ -55,29 +55,7 @@ get_header();
               <h1 class="stage-name"><?php echo $stage->name; ?></h1>
               <p class="stage-description"><?php echo $stage->description; ?> <a href="<?php echo esc_url( get_category_link( $stage->term_id ) ); ?>"><?php echo "See all " . $stage->name . " articles &raquo;"; ?></a></p>
             </div>
-            <div class="article-cards">
-              <?php while( have_posts() ) : the_post(); ?>
-                <?php
-                  $article_category = get_the_category();
-                ?>
-                <div class="article-card <?php echo $article_category[0]->slug; ?>">
-                  <div class="article-card-heading">
-                    <?php the_title( '<h3 class="article-title">', '</h3>' ); ?>
-                    <div class="article-meta">
-                      <?php the_date( 'j F Y', '<span class="article-date">', '</span>' ); ?>
-                      <span class="article-meta-separator">|</span>
-                      <?php the_time('H:i A', '<span class="article-time">', '</span>'); ?>
-                    </div>
-                    <div class="article-excerpt">
-                      <?php echo wp_trim_words( get_the_content(), 40, '...' ); ?>
-                    </div>
-                    <a href="<?php the_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
-                    <?php $article_category = get_the_category(); ?>
-                    <a href="<?php echo esc_url( get_category_link( $article_category[0]->cat_ID ) ); ?>" class="article-card-category"><?php echo $article_category[0]->name; ?></a>
-                  </div>
-                </div>
-              <?php endwhile; wp_reset_query(); ?>
-            </div>
+            <?php get_template_part( 'template-parts/section-article-cards', 'article-cards' ); ?>
           </section>
         <?php endif; ?>
       <?php endforeach; ?>

@@ -1,21 +1,18 @@
 <?php
-/* Search template */
+/* Resources page: Stages */
+
 get_header(); ?>
 
 <main class="resources" id="search-results">
   <!-- HERO BANNER -->
   <section class="hero-banner text-only">
-    <!-- <div class="hero-text">
-      <h1>Search Results</h1>
-    </div> -->
   </section>
 
   <!-- STAGES -->
   <div class="stages">
     <section class="stage">
       <div class="stage-details">
-        <h1 class="stage-name" id="title"><?php #echo $wp_query->found_posts; ?>
-        <?php _e( 'Search Results for', 'locale' ); ?>: "<?php the_search_query(); ?>"</h1>
+        <h1 class="stage-name"><?php echo get_the_category()[0]->cat_name; ?></h1>
       </div>
       <?php get_template_part( 'template-parts/section-article-cards', 'article-cards' ); ?>
     </section>
