@@ -105,24 +105,85 @@ function add_search_form($items, $args) {
 }
 
 // Custom Taxonomies start
-function rare_cancers_ph_site_locations_init() {
-  // create a new taxonomy
-  register_taxonomy(
-    'site_locations',
-    array(
-      'label' => __( 'Site Locations' ),
-      'rewrite' => array( 'slug' => 'site_location' ),
-      'capabilities' => array(
-        'assign_terms' => 'edit_tags',
-        'edit_terms' => 'manage_tags'
-      )
-    )
+// Register Site Locations Custom Taxonomy
+function rare_cancers_ph_site_locations() {
+
+  $labels = array(
+    'name'                       => _x( 'Site Locations', 'Taxonomy General Name', 'rare-cancers-ph' ),
+    'singular_name'              => _x( 'Site Location', 'Taxonomy Singular Name', 'rare-cancers-ph' ),
+    'menu_name'                  => __( 'Site Location', 'rare-cancers-ph' ),
+    'all_items'                  => __( 'All Site Locations', 'rare-cancers-ph' ),
+    'parent_item'                => __( 'Parent Site Location', 'rare-cancers-ph' ),
+    'parent_item_colon'          => __( 'Parent Site Location:', 'rare-cancers-ph' ),
+    'new_item_name'              => __( 'New Site Location Name', 'rare-cancers-ph' ),
+    'add_new_item'               => __( 'Add New Site Location', 'rare-cancers-ph' ),
+    'edit_item'                  => __( 'Edit Site Location', 'rare-cancers-ph' ),
+    'update_item'                => __( 'Update Site Location', 'rare-cancers-ph' ),
+    'view_item'                  => __( 'View Site Location', 'rare-cancers-ph' ),
+    'separate_items_with_commas' => __( 'Separate site locations with commas', 'rare-cancers-ph' ),
+    'add_or_remove_items'        => __( 'Add or remove site locations', 'rare-cancers-ph' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'rare-cancers-ph' ),
+    'popular_items'              => __( 'Popular Site Locations', 'rare-cancers-ph' ),
+    'search_items'               => __( 'Search Site Locations', 'rare-cancers-ph' ),
+    'not_found'                  => __( 'Site Location Not Found', 'rare-cancers-ph' ),
+    'no_terms'                   => __( 'No site locations', 'rare-cancers-ph' ),
+    'items_list'                 => __( 'Site Locations list', 'rare-cancers-ph' ),
+    'items_list_navigation'      => __( 'Site Locations list navigation', 'rare-cancers-ph' ),
   );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => false,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => false,
+    'show_tagcloud'              => false,
+    'rewrite'                    => false,
+  );
+  register_taxonomy( 'site_location', array( 'slides' ), $args );
 }
-add_action( 'init', 'rare_cancers_ph_site_locations_init' );
+add_action( 'init', 'rare_cancers_ph_site_locations', 0 );
+
+// Register Stages Custom Taxonomy
+function rare_cancers_ph_stages() {
+
+  $labels = array(
+    'name'                       => _x( 'Stages', 'Taxonomy General Name', 'rare-cancers-ph' ),
+    'singular_name'              => _x( 'Stage', 'Taxonomy Singular Name', 'rare-cancers-ph' ),
+    'menu_name'                  => __( 'Stage', 'rare-cancers-ph' ),
+    'all_items'                  => __( 'All Stages', 'rare-cancers-ph' ),
+    'parent_item'                => __( 'Parent Stage', 'rare-cancers-ph' ),
+    'parent_item_colon'          => __( 'Parent Stage:', 'rare-cancers-ph' ),
+    'new_item_name'              => __( 'New Stage Name', 'rare-cancers-ph' ),
+    'add_new_item'               => __( 'Add New Stage', 'rare-cancers-ph' ),
+    'edit_item'                  => __( 'Edit Stage', 'rare-cancers-ph' ),
+    'update_item'                => __( 'Update Stage', 'rare-cancers-ph' ),
+    'view_item'                  => __( 'View Stage', 'rare-cancers-ph' ),
+    'separate_items_with_commas' => __( 'Separate stages with commas', 'rare-cancers-ph' ),
+    'add_or_remove_items'        => __( 'Add or remove stages', 'rare-cancers-ph' ),
+    'choose_from_most_used'      => __( 'Choose from the most used', 'rare-cancers-ph' ),
+    'popular_items'              => __( 'Popular Stages', 'rare-cancers-ph' ),
+    'search_items'               => __( 'Search Stages', 'rare-cancers-ph' ),
+    'not_found'                  => __( 'Not Found', 'rare-cancers-ph' ),
+    'no_terms'                   => __( 'No stages', 'rare-cancers-ph' ),
+    'items_list'                 => __( 'Stages list', 'rare-cancers-ph' ),
+    'items_list_navigation'      => __( 'Stages list navigation', 'rare-cancers-ph' ),
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+  );
+  register_taxonomy( 'stage', array( 'post' ), $args );
+}
+add_action( 'init', 'rare_cancers_ph_stages', 0 );
 
 // Custom Post Types Start
-function rare_cancers_ph_custom_post_type() {
+function rare_cancers_ph_slides_init() {
   // Set UI labels for Custom Post Type
   $labels = array(
     'name'                => _x( 'Slides', 'Post Type General Name', 'rare-cancers-ph' ),
@@ -140,36 +201,35 @@ function rare_cancers_ph_custom_post_type() {
     'not_found_in_trash'  => __( 'Not found in Trash', 'rare-cancers-ph' ),
   );
      
-// Set other options for Custom Post Type
-     
-    $args = array(
-        'label'               => __( 'slides', 'rare-cancers-ph' ),
-        'description'         => __( 'Slide news and reviews', 'rare-cancers-ph' ),
-        'labels'              => $labels,
-        // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'categories', 'thumbnail', 'custom-fields', ),
-        // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'site_locations' ),
-        /* A hierarchical CPT is like Pages and can have
-        * Parent and child items. A non-hierarchical CPT
-        * is like Posts.
-        */ 
-        'hierarchical'        => false,
-        'public'              => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'show_in_nav_menus'   => true,
-        'show_in_admin_bar'   => true,
-        'menu_position'       => 5,
-        'can_export'          => true,
-        'has_archive'         => true,
-        'exclude_from_search' => true,
-        'publicly_queryable'  => true,
-        'capability_type'     => 'page',
-    );
+  // Set other options for Custom Post Type
+  $args = array(
+      'label'               => __( 'slides', 'rare-cancers-ph' ),
+      'description'         => __( 'Slide news and reviews', 'rare-cancers-ph' ),
+      'labels'              => $labels,
+      // Features this CPT supports in Post Editor
+      'supports'            => array( 'title', 'editor', 'categories', 'thumbnail', 'custom-fields', ),
+      // You can associate this CPT with a taxonomy or custom taxonomy. 
+      'taxonomies'          => array( 'site_location' ),
+      /* A hierarchical CPT is like Pages and can have
+      * Parent and child items. A non-hierarchical CPT
+      * is like Posts.
+      */ 
+      'hierarchical'        => false,
+      'public'              => true,
+      'show_ui'             => true,
+      'show_in_menu'        => true,
+      'show_in_nav_menus'   => true,
+      'show_in_admin_bar'   => true,
+      'menu_position'       => 5,
+      'can_export'          => true,
+      'has_archive'         => true,
+      'exclude_from_search' => true,
+      'publicly_queryable'  => true,
+      'capability_type'     => 'page',
+  );
      
     // Registering your Custom Post Type
     register_post_type( 'slides', $args );
 }
 
-add_action( 'init', 'rare_cancers_ph_custom_post_type' );
+add_action( 'init', 'rare_cancers_ph_slides_init' );

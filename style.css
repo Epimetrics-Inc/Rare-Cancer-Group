@@ -1086,8 +1086,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   /* Article Card Specific styles */
   .article-cards .article-card {
     display: inline-block;
+    vertical-align: top;
     width: calc(100%/2.25);
-    height: fit-content;
     margin: 1rem;
   }
 
@@ -1251,6 +1251,7 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   }
 
   .stage .stage-details {
+    margin-left: 0;
     margin-bottom: 2.78rem;
   }
 
@@ -1282,6 +1283,7 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
     margin: initial;
     grid-column: span 1;
     grid-row: span 1;
+    height: fit-content;
   }
 
   /* ABOUT RCPH SECTION STYLES */
@@ -1351,12 +1353,6 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   .stages .stage {
     padding-left: 8.33rem;
     padding-right: 8.33rem;
-  }
-
-  .stage .stage-details {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
   }
 
   .stage .stage-details::before {

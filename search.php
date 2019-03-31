@@ -34,4 +34,7 @@ get_header(); ?>
     </section>
   </div>
 
+  <!-- Newsletter CTA -->
+  <?php get_template_part( 'template-parts/section-newsletter', 'newsletter-section' ); ?>
+
 <?php get_footer(); ?>
