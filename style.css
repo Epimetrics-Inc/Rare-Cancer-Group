@@ -532,7 +532,6 @@ main {
   float: right;
 }
 
-.article-card a[rel~="tag"],
 .article-card .article-card-category {
   position: relative;
   color: #fff;
@@ -581,15 +580,15 @@ main {
 .article-card.social-support .article-card-heading .article-title { color: var(--color-red-primary); }
 .article-card.others .article-card-heading .article-title { color: var(--color-teal-primary); }
 
-.article-card.medical-information a[rel~="tag"] { background-color: var(--color-blue-primary); }
-.article-card.financial-aid a[rel~="tag"] { background-color: var(--color-yellow-primary); }
-.article-card.social-support a[rel~="tag"] { background-color: var(--color-red-primary); }
-.article-card.others a[rel~="tag"] { background-color: var(--color-teal-primary); }
+.article-card.medical-information .article-card-category { background-color: var(--color-blue-primary); }
+.article-card.financial-aid .article-card-category { background-color: var(--color-yellow-primary); }
+.article-card.social-support .article-card-category { background-color: var(--color-red-primary); }
+.article-card.others .article-card-category { background-color: var(--color-teal-primary); }
 
-.article-card.medical-information a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-blue-secondary); }
-.article-card.financial-aid a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
-.article-card.social-support a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-red-secondary); }
-.article-card.others a[rel~="tag"]::before { border-right: 1.08rem solid var(--color-teal-secondary); }
+.article-card.medical-information .article-card-category::before { border-right: 1.08rem solid var(--color-blue-secondary); }
+.article-card.financial-aid .article-card-category::before { border-right: 1.08rem solid var(--color-yellow-secondary); }
+.article-card.social-support .article-card-category::before { border-right: 1.08rem solid var(--color-red-secondary); }
+.article-card.others .article-card-category::before { border-right: 1.08rem solid var(--color-teal-secondary); }
 
 /* ABOUT RCPH SECTION STYLES */
 .about {

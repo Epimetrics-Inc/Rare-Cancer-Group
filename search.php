@@ -26,7 +26,8 @@ get_header(); ?>
           </div>
           <p class="article-excerpt"><?php echo substr(get_the_excerpt(), 0,200); ?></p>
           <a href="<?php echo get_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
-          <!-- <a href="#" class="article-card-category"> --><?php the_tags(''); ?><!-- </a> -->
+          <?php $article_category = get_the_category(); ?>
+          <a href="<?php echo esc_url( get_category_link( $article_category[0]->cat_ID ) ); ?>" class="article-card-category"><?php echo $article_category[0]->name; ?></a>
         </div>
         <?php endif; ?>
       </div>

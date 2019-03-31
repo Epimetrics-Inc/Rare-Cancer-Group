@@ -42,27 +42,25 @@ get_header();
 
     <!-- STAGES -->
     <div class="stages">
-      <?php foreach ( get_categories( array( 'order' => ASC, ) ) as $category ) : ?>
-        <?php if ( $category->count > 0 ) : ?>
+      <?php #Get all the stages
+        $stages_query_args = array(
+          'taxonomy'  => 'stage',
+          'order'     => ASC,
+        );
+      ?>
+      <?php foreach ( get_terms( $stages_query_args ) as $stage ) : ?>
+        <?php if ( $stage->count > 0 ) : ?>
           <section class="stage">
             <div class="stage-details">
-              <h1 class="stage-name"><?php echo $category->cat_name; ?></h1>
-              <p class="stage-description"><?php echo $category->category_description; ?> <a href="<?php echo esc_url( get_category_link( $category->cat_ID ) ); ?>"><?php echo "See all " . $category->cat_name . " articles &raquo;"; ?></a></p>
+              <h1 class="stage-name"><?php echo $stage->name; ?></h1>
+              <p class="stage-description"><?php echo $stage->description; ?> <a href="<?php echo esc_url( get_category_link( $stage->term_id ) ); ?>"><?php echo "See all " . $stage->name . " articles &raquo;"; ?></a></p>
             </div>
             <div class="article-cards">
-              <?php
-                # Load all posts for the specific category
-                $category_args = array(
-                  'category_name' => $category->cat_name,
-                );
-              ?>
-
               <?php while( have_posts() ) : the_post(); ?>
                 <?php
-                  $article_tag = get_the_tags();
-                  $tag_link = get_tag_link( $article_tag->term_id );
+                  $article_category = get_the_category();
                 ?>
-                <div class="article-card <?php echo $article_tag[0]->slug; ?>">
+                <div class="article-card <?php echo $article_category[0]->slug; ?>">
                   <div class="article-card-heading">
                     <?php the_title( '<h3 class="article-title">', '</h3>' ); ?>
                     <div class="article-meta">
@@ -74,7 +72,8 @@ get_header();
                       <?php echo wp_trim_words( get_the_content(), 40, '...' ); ?>
                     </div>
                     <a href="<?php the_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
-                    <?php the_tags(''); ?>
+                    <?php $article_category = get_the_category(); ?>
+                    <a href="<?php echo esc_url( get_category_link( $article_category[0]->cat_ID ) ); ?>" class="article-card-category"><?php echo $article_category[0]->name; ?></a>
                   </div>
                 </div>
               <?php endwhile; wp_reset_query(); ?>
