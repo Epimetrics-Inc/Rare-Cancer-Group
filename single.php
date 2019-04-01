@@ -8,7 +8,6 @@ get_header(); ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-
     <div class="hero-banner article-feature-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75)), url('<?php echo $image[0]; ?>');">
 
       <div class="article-header">
@@ -20,16 +19,7 @@ get_header(); ?>
           <span class="article-meta-separator">|</span>
           <?php the_author('', '<span class="article-author">', '</span>'); ?>
         </div>
-        <?php 
-        $tags = get_tags();
-        foreach ( $tags as $tag ) {
-          $tag_link = get_tag_link( $tag->term_id );
-              
-          $html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='article-tags {$tag->slug}'>";
-          $html .= "{$tag->name}</a>";
-        }
-        echo $html;
-        ?>
+        <a href="<?php echo esc_url( get_category_link( $post->ID ) ); ?>" class="article-tags <?php echo get_the_category()[0]->slug; ?>"><?php echo get_the_category()[0]->name; ?></a>
       </div>
     </div>
 
@@ -58,30 +48,43 @@ get_header(); ?>
 
   <!-- Related Articles -->
   <div class="stages related-articles">
-    <!-- TODO: setup loop for related articles -->
     <section class="stage">
       <div class="stage-details">
         <h1 class="stage-name">Related Articles</h1>
       </div>
       <div class="article-cards">
-        <div class="article-card medical-information">
-          <div class="article-card-heading">
-            <h3 class="article-title">Sample article title that is long</h3>
-            <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-          </div>
-          <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-          <a href="article.html" class="article-read-more">Read more &raquo;</a>
-          <a href="#" class="article-card-category">Medical Information</a>
-        </div>
-        <div class="article-card financial-aid">
-          <div class="article-card-heading">
-            <h3 class="article-title">Sample article title that is long</h3>
-            <p class="article-meta">Nov 25 2018 | 12:34 PM</p>
-          </div>
-          <p class="article-excerpt">This is the article’s excerpt. Usually the first few sentences. If the paragraph is longer than expected, it will be cut off like this and trail off...</p>
-          <a href="article.html" class="article-read-more">Read more &raquo;</a>
-          <a href="#" class="article-card-category">Financial Aid</a>
-        </div>
+        <?php $original_post = $post;
+        global $post;
+        $article_categories = get_the_category( $post->ID ); ?>
+
+        <?php if ( $article_categories ) : ?>
+          <?php
+            $category_ids = array();
+            foreach( $article_categories as $article_category ) $category_ids[] = $article_category->term_id;
+
+            $related_args = array(
+              'category__in'      => $category_ids,
+              'post__not_in'      => array( $post->ID ),
+              'posts_per_page'    => 2,
+              'caller_get_posts'  => 1,
+            );
+
+            $related_query = new WP_Query( $related_args );
+          ?>
+          <?php if( $related_query->have_posts() ) : ?>
+            <?php while( $related_query->have_posts() ) : $related_query->the_post(); ?>
+              <div class="article-card <?php echo get_the_category()[0]->slug; ?>">
+                <div class="article-card-heading">
+                  <?php the_title( '<h3 class="article-title">', '</h3>' ); ?>
+                  <p class="article-meta"><?php the_date( 'j F Y' ) ?> | <?php the_time( 'H:i A' ); ?></p>
+                  <div class="article-excerpt"><?php echo wp_trim_words( get_the_content(), 40, '...' ); ?></div>
+                  <a href="<?php the_permalink(); ?>" class="article-read-more">Read more &raquo;</a>
+                  <a href="<?php echo esc_url( get_category_link( get_the_category()[0]->cat_ID ) ); ?>" class="article-card-category"><?php echo get_the_category()[0]->name; ?></a>
+                </div>
+              </div>
+            <?php endwhile; ?>
+          <?php endif; ?>
+        <?php endif; $post = $original_post; wp_reset_query(); ?>
       </div>
     </section>
   </div>
