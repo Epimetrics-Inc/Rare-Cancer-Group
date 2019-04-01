@@ -921,6 +921,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   color: var(--color-text-secondary);
 }
 
+#article .article-body .social-sharing { text-align: center; }
+
 /* Article Footer styles */
 #article .article-footer {
   margin: 0 2rem;
@@ -941,39 +943,9 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   right: 0;
 }
 
-#article .article-footer .social-media-horizontal {
-  color: var(--color-blue-primary);
-  font-weight: bold;
-  text-transform: lowercase;
-}
-
-#article .article-footer .social-media-horizontal a {
-  font-size: 1.5rem;
-  border-bottom: none;
-}
-
 /* toggle to open comments section */
 #article .article-footer .comments {
-  color: var(--color-text-primary);
-}
-
-#article .article-footer .comments i {
-  margin: 0 0.5rem;
-  font-size: 1.5rem;
-  color: var(--color-teal-primary);
-  transition: inherit;
-}
-
-#article .article-footer .comments:hover,
-#article .article-footer .comments:focus,
-#article .article-footer .comments:active {
-  color: var(--color-text-secondary);
-}
-
-#article .article-footer .comments:hover i,
-#article .article-footer .comments:focus i,
-#article .article-footer .comments:active i {
-  color: var(--color-teal-secondary);
+  margin: 0 auto;
 }
 
 /* Related Articles styles */
@@ -1032,6 +1004,46 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
 #search-results .hero-banner.text-only {
   min-height: initial;
   height: 0;
+}
+
+/* Images */
+.img-responsive{display: block;max-width: 100%;height: auto;margin: 0px auto;}
+.img-circle { border-radius: 50%; }    
+    
+/* Comments */
+textarea, input {border:1px solid #e4e4e4;}
+textarea {width:100%;}
+.comment-list, .children{list-style:none;}
+ul.children {list-style:none;padding-left:0px; margin-left:0px;}
+.comment-wrap { border-bottom: 1px solid #ccc; padding-bottom: 40px; margin-bottom: 50px; position:relative; }
+.comment-wrap .comments-title{padding-top:60px;}
+.comment-wrap .comment-img { float: left; margin-right: 20px; padding-bottom:25px;}
+.comment-author {text-align:left;}
+.comment-reply {position:absolute;top:0px;right:0px;font-style:italic; padding:5px 5px;background:#f5f5f5;}
+.comment-author,.comment-author a{font-size: 14px;text-transform: uppercase; letter-spacing: 2px;margin-bottom:2px;}
+.comment-date{font-size: 10px;text-transform: uppercase; letter-spacing: 2px;font-style:italic;display:block;padding-bottom:7px;}
+.depth-2 .comment-wrap {padding-left:30px;}
+.depth-3 .comment-wrap {padding-left:60px;}
+.depth-4 .comment-wrap {padding-left:90px;}
+.depth-5 .comment-wrap {padding-left:120px;}
+.depth-6 .comment-wrap {padding-left:150px;}
+.depth-7 .comment-wrap {padding-left:180px;}
+.depth-8 .comment-wrap {padding-left:210px;}
+.depth-9 .comment-wrap {padding-left:240px;}
+.depth-10 .comment-wrap {padding-left:270px;}
+#commentform #comment,#commentform #author,#commentform #email,#commentform #url{display:block;width:100%;}
+#commentform input[type="submit"]{display:inline-block;padding:8px 15px;border:1px solid #e4e4e4;font-size: 10px;text-transform: uppercase;letter-spacing: 3px;background: #fff;margin-top:15px;}
+#commentform input[type="submit"]:hover {background: #e2fcff;}
+.title-line{border-top: 1px dotted #ccc;display: block;max-width: 30%;margin: 0 auto 25px;}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .comment-list, .children { padding-left: 0px; }
+    .comment-wrap .comment-img { float: none;margin: 0px;width: 100%;padding-bottom: 0px; }
+    .comment-img>img { display: block;margin: 0px auto; }
+    .comment-author, .comment-author a, .comment-date { text-align:center; }
+    .depth-2 .comment-wrap,.depth-3 .comment-wrap,.depth-4 .comment-wrap,.depth-5 .comment-wrap,.depth-6 .comment-wrap,.depth-7 .comment-wrap,.depth-8 .comment-wrap,.depth-9 .comment-wrap,.depth-10 .comment-wrap {padding-left:0px;}
+    .comment-reply { position: relative; text-align: center; display: block; margin-top: 25px;}
 }
 
 /* ============== */
@@ -1184,12 +1196,6 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   #article .article-body figure.image-size-small { width: 15rem; }
   #article .article-body figure.image-size-medium { width: 20rem; }
   #article .article-body figure.image-size-full { width: 30rem; }
-
-  /* Article Footer styles */
-  #article .article-footer {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 
 @media screen and (min-width: 50rem) {

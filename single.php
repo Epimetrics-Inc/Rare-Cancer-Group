@@ -28,18 +28,6 @@ get_header(); ?>
     </div>
 
     <div class="article-footer">
-      <!-- TODO: look for social media plugin -->
-      <div class="social-media-horizontal">
-        <span>Share:</span>
-        <a href="#"><i class="fa fa-facebook-square"></i></a>
-        <a href="#"><i class="fa fa-twitter-square"></i></a>
-        <a href="#"><i class="fa fa-envelope-square"></i></a>
-      </div>
-
-      <!-- TODO: look for way to integrate comments -->
-      <!-- <a href="#" class="comments">
-        <i class="fa fa-comments"></i><span class="article-comment-count">12</span> comments
-      </a> -->
       <?php if ( comments_open() || get_comments_number() ) {
           comments_template();
         } ?>
