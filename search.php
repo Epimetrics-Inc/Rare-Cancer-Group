@@ -5,9 +5,6 @@ get_header(); ?>
 <main class="resources" id="search-results">
   <!-- HERO BANNER -->
   <section class="hero-banner text-only">
-    <!-- <div class="hero-text">
-      <h1>Search Results</h1>
-    </div> -->
   </section>
 
   <!-- STAGES -->
