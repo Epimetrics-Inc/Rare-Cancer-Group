@@ -737,19 +737,19 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   width: 100%;
 }
 
-.contact-info a {
+.contact-info > * {
   display: block;
   color: var(--color-blue-primary);
   margin-bottom: 1.25rem;
 }
 
-.contact-info a i {
+.contact-info > * i {
   margin: 0.25rem 1rem;
   font-size: 24px;
   color: var(--color-teal-primary);
 }
 
-.contact-info a:first-of-type i { margin: 0.25rem 0.8rem; }
+.contact-info > *:first-of-type i { margin: 0.25rem 0.8rem; }
 
 /* ABOUT US STYLES */
 .hero-banner.text-only {

@@ -6,17 +6,6 @@
   <footer>
     <div class="sitemap">
       <h4>Sitemap</h4>
-      <!-- <ul class="sitemap-links">
-        <li class="link-item"><a class="link" href="about-us.html">About Us</a></li>
-        <li class="link-item"><a class="link" href="community.html">Community</a></li>
-        <li class="link-item"><a class="link" href="diagnostics.html">Diagnostics</a></li>
-        <li class="link-item"><a class="link" href="treatment.html">Treatment</a></li>
-        <li class="link-item"><a class="link" href="survivorship.html">Survivorship</a></li>
-        <li class="link-item"><a class="link" href="legacy.html">Legacy</a></li>
-        <li class="link-item"><a class="link" href="resources.html">Resources</a></li>
-        <li class="link-item"><a class="link" href="contact.html">Get In Touch</a></li>
-      </ul> -->
-
       <?php if( has_nav_menu( 'sitemap' ) ): ?>
         <?php
           wp_nav_menu(
@@ -30,13 +19,18 @@
       <?php endif; ?>
     </div>
     <div class="org-information">
-      <h4 class="name">Rare Cancers Philippines</h4>
-      <p class="address">10 Garcia St. South Admiral Village, Paranaque City</p>
-      <div class="social-media-links">
-        <!-- <a href="#" class="link"><i class="fa fa-facebook-square"></i> Facebook</a> -->
-        <a href="mailto:rarecancersphilippines@gmail.com" class="link"><i class="fa fa-envelope"></i> rarecancersphilippines@gmail.com</a>
-      </div>
-      <div class="copyright">2019 &copy; All Rights Reserved.</div>
+      <?php
+        # Get information from Contact Us page
+        $info_query = new WP_Query( 'pagename=contact' );
+      ?>
+      <?php while( $info_query->have_posts() ) : $info_query->the_post(); ?>
+        <h4 class="name"><?php bloginfo( 'name' ); ?></h4>
+        <p class="address"><?php the_field( 'contact_address' ); ?></p>
+        <div class="social-media-links">
+          <a href="mailto:<?php the_field( 'contact_email' ); ?>" class="link"><i class="fa fa-envelope"></i> <?php the_field( 'contact_email' ); ?></a>
+        </div>
+        <div class="copyright"><?php the_time( 'Y' ); ?> &copy; All Rights Reserved.</div>
+      <?php endwhile; wp_reset_postdata(); ?>
     </div>
   </footer>
 
