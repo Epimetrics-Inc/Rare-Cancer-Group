@@ -3,7 +3,7 @@ jQuery(function() {
   jQuery('.carousel').lightSlider({
     item: 1,
     autoWidth: false,
-    // auto: true,
+    auto: true,
     loop: true,
     pause: 5000,
     pauseOnHover: true,
