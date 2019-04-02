@@ -1323,10 +1323,8 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
     height: fit-content;
   }*/
 
-  .article-cards .article-card {
-    margin: 3rem 1.5rem;
-    width: calc(100%/2.5);
-  }
+  .stages .stage .article-cards { width: 100%; }
+  .article-cards .article-card { margin: 3rem 1rem; }
 
   /* ABOUT RCPH SECTION STYLES */
   .about {
@@ -1415,7 +1413,8 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
   }
 
   /* Article Card Specific styles */
-  .stages .stage .article-cards { grid-gap: 3.5rem; }
+  /*.stages .stage .article-cards { grid-gap: 3.5rem; }*/
+  .article-cards .article-card { margin: 3rem 1.5rem; }
 
   /* NEWSLETTER SIGNUP SECTION STYLES */
   .newsletter-signup .newsletter-info { margin: 1rem 2.22rem; }
