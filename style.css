@@ -224,6 +224,7 @@ textarea {
   border: 3px solid transparent;
   background-color: #fafafa;
   transition: outline 400ms ease;
+  max-width: 100%;
 }
 
 input:focus,
@@ -518,6 +519,12 @@ main {
               inset 0px 4px 0px var(--color-blue-secondary);
 }
 
+.article-cards .article-link,
+.article-cards .article-link:visited,
+.article-cards .article-link:active,
+.article-cards .article-link:hover,
+.article-cards .article-link:focus { color: var(--color-text-primary); }
+
 .article-card .article-card-heading .article-title {
   padding-bottom: 0.5rem;
 }
@@ -732,6 +739,34 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   margin: 0.5rem auto 1.5rem;
 }
 
+.contact-us input[type="submit"] {
+  width: initial;
+  margin: initial;
+  float: right;
+  display: inline-block;
+  text-align: center;
+  text-shadow: none;
+  font-size: var(--size-text-button);
+  font-family: var(--font-heading);
+  padding: 0.8rem 1.3rem;
+  border: 3px solid transparent;
+  border-radius: var(--border-radius);
+  width: auto;
+  transition: all 300ms;
+  background-color: var(--color-blue-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.contact-us input[type="submit"]:hover,
+.contact-us input[type="submit"]:focus {
+  background-color: var(--color-blue-secondary);
+}
+
+.contact-us .wpcf7-response-output {
+  margin-top: 3rem;
+}
+
 .contact-info {
   display: block;
   width: 100%;
@@ -741,6 +776,8 @@ main#contact { padding: calc(var(--size-header) + 2rem) 2rem 2rem; }
   display: block;
   color: var(--color-blue-primary);
   margin-bottom: 1.25rem;
+  hyphens: manual;
+  word-break: break-all;
 }
 
 .contact-info > * i {
@@ -1149,46 +1186,13 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
   }
 
   /* CONTACT US STYLES */
-  .contact-us {
-    display: inline-block;
+  .contact-us, .contact-info {
+    /*display: inline-block;*/
     width: 60%;
+    margin: 0 auto;
   }
 
-  .contact-us input[type="submit"] {
-    width: initial;
-    margin: initial;
-    float: right;
-    display: inline-block;
-    text-align: center;
-    text-shadow: none;
-    font-size: var(--size-text-button);
-    font-family: var(--font-heading);
-    padding: 0.8rem 1.3rem;
-    border: 3px solid transparent;
-    border-radius: var(--border-radius);
-    width: auto;
-    transition: all 300ms;
-    background-color: var(--color-blue-primary);
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .contact-us input[type="submit"]:hover,
-  .contact-us input[type="submit"]:focus {
-    background-color: var(--color-blue-secondary);
-  }
-
-  .contact-us .wpcf7-response-output {
-    margin-top: 3rem;
-  }
-
-  .contact-info {
-    display: inline-block;
-    vertical-align: top;
-    width: 33%;
-    margin-top: 3rem;
-    margin-left: 1.5rem;
-  }
+  
 
   /* ABOUT US STYLES */
   .hero-banner.text-only {
@@ -1302,13 +1306,14 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
     margin: initial;
   }
 
-  .stages .stage .article-cards {
+  /*.stages .stage .article-cards {
     display: grid;
     grid-auto-rows: minmax(min-content, max-content);
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
   }
 
+  .article-cards .article-link,
   .article-cards .article-card {
     display: block;
     width: auto;
@@ -1316,6 +1321,11 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
     grid-column: span 1;
     grid-row: span 1;
     height: fit-content;
+  }*/
+
+  .article-cards .article-card {
+    margin: 3rem 1.5rem;
+    width: calc(100%/2.5);
   }
 
   /* ABOUT RCPH SECTION STYLES */

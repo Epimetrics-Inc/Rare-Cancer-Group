@@ -100,7 +100,7 @@ add_filter('wp_nav_menu_items', 'add_search_form', 10, 2);
 function add_search_form($items, $args) {
   $search_text = "";
   if( $args->theme_location == 'primary' )
-        $items .= '<li class="menu-item"><a href="#" id="search">Search</a></li><li class="search-container"><form role="search" method="get" id="searchform" action="'.home_url( '/' ).'" class="search-field"><input type="text" value="'.$search_text.'" name="s" id="s" placeholder="Search for something..." onblur="if (this.value == \'\') {this.value ='.$search_text.'};" /><i class="fa fa-search"></i><input type="hidden" id="searchsubmit" /></form></li>';
+        $items .= '<li class="menu-item"><a href="#" id="search">Search</a></li><li class="search-container"><form role="search" method="get" id="searchform" action="'.home_url( '/' ).'" class="search-field"><input type="text" value="'.$search_text.'" name="s" id="s" placeholder="Search..." onblur="if (this.value == \'\') {this.value ='.$search_text.'};" /><i class="fa fa-search"></i><input type="hidden" id="searchsubmit" /></form></li>';
         return $items;
 }
 
